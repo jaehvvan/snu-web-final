@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { AcurQuestionIdx } from '../store/atom';
 
 const ScoreBoard = () => {
   const dummy_teams = [
@@ -9,9 +11,12 @@ const ScoreBoard = () => {
   ];
 
   const [teams, setTeams] = useState(dummy_teams);
+  const [curQuestionIdx, setCurQuestionIdx] = useRecoilState(AcurQuestionIdx);
 
   const handleClick = (e) => {
     const { name: teamId } = e.currentTarget;
+    console.dir(curQuestionIdx);
+    setCurQuestionIdx((curIdx) => curIdx + 1);
     setTeams(
       teams.map((team) => (team.id === +teamId ? { ...team, score: team.score + 1 } : team)),
     );
