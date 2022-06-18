@@ -1,13 +1,8 @@
 @import './utils.scss';
 
 .ScoreBoard {
-  @include borderBox();
   display: flex;
   width: 100%;
-
-  * {
-    @include borderBox();
-  }
 
   &__btn {
     @include resetBtn();

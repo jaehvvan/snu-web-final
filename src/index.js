@@ -5,7 +5,10 @@ import App from './App';
 import './styles/reset.scss';
 import './styles/normalize.scss';
 import './styles/fonts.css';
+import './styles/index.scss';
 import './styles/scoreBoard.scss';
+import './styles/questionProgress.scss';
+import './styles/musicPlayer.scss';
 
 import { BrowserRouter } from 'react-router-dom';
 
