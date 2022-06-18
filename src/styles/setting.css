@@ -1,0 +1,20 @@
+#layoutDom{
+
+}
+
+#titleDom{
+    font-size: 50px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#teamDom, #CategoryDom, #NumberOfProblemDom{
+    margin-bottom: 30px;
+}
+
+#buttonDom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
