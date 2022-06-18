@@ -10,8 +10,9 @@ const QuestionPage = () => {
       <ScoreBoard />
       <QuestionProgress />
       <MusicPlayer />
-      <Hint />
-      <Link to="/youtube">정답 공개</Link>
+      <div className="QuestionPage__footer">
+        <Hint />
+      </div>
     </div>
   );
 };
