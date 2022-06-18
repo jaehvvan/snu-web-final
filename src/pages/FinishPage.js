@@ -1,6 +1,3 @@
-import React from 'react';
-import { Fireworks } from 'fireworks/lib/react';
-
 const FinishPage = () => {
   let fxProps = {
     count: 6,

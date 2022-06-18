@@ -1,0 +1,31 @@
+#layoutDom{
+    margin: 10px;
+    border: 10px solid #f9b256;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#titleDom{
+    font-size: 50px;
+    color: #fa9f4e;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#teamDom, #yearDom, #categoryDom, #numberOfProblemDom{
+    margin-bottom: 30px;
+}
+
+#buttonDom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+}
+
+#teamNameDom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

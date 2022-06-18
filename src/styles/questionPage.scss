@@ -1,0 +1,4 @@
+.QuestionProgress {
+  @include borderBox();
+  display: flex;
+}
