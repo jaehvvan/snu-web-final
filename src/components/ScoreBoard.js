@@ -1,6 +1,6 @@
+import { Grid } from '@mui/material';
 import { useRecoilState } from 'recoil';
 import { AtomTeams } from '../store/atom';
-import { Grid } from '@mui/material';
 import Team from './Team';
 
 const ScoreBoard = () => {

@@ -1,9 +1,9 @@
+import { Box, Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
+import Hint from '../components/Hint';
+import MusicPlayer from '../components/MusicPlayer';
 import QuestionProgress from '../components/QuestionProgress';
 import ScoreBoard from '../components/ScoreBoard';
-import MusicPlayer from '../components/MusicPlayer';
-import Hint from '../components/Hint';
-import { Grid, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
 
 const QuestionPage = () => {
   return (
