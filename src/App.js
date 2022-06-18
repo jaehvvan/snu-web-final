@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import ErrorPage from './pages/ErrorPage';
 
 import FinishPage from './pages/FinishPage';
 import LandingPage from './pages/LandingPage';
@@ -14,6 +15,7 @@ function App() {
       <Route path="/question" element={<QuestionPage />} />
       <Route path="/youtube" element={<YoutubePage />} />
       <Route path="/finish" element={<FinishPage />} />
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 }
