@@ -25,12 +25,18 @@ const LandingPage = () => {
   };
 
   return (
-    <div>
-      <div>신서유기 폰트는 과연 제대로 작동할까요?</div>
+    <div id="landing">
+      <div id="desc">
+        <div id="main_title">노래 제목 맞추기 게임</div>
+        <div id="main_title_desc">
+          "술자리에서든, MT에서든, {'\n'} 가벼운 즐거움이 필요한 곳 어디서든 플레이하세요"
+        </div>
+      </div>
       {!user && <div onClick={handleLogin}>Login</div>}
-      <Link to="/setting" onClick={clearState}>
+      <Link to="/setting" id="start_button" onClick={clearState}>
         시작
       </Link>
+      <div id="team_name">made by 6조</div>
     </div>
   );
 };

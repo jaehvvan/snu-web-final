@@ -1,0 +1,38 @@
+#landing{
+    /*position:relative;*/
+    height: 100vh;
+    background-image: url("../assets/images/landingpage_v02.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    alignItems: center;
+    justifyContent: center;
+}
+
+#desc{
+    /*display: block !important;*/
+    /*width: 100%;*/
+    /*left: 0px;*/
+    /*top: 50%;*/
+    /*margin-left: 0px;*/
+    text-align: center;
+    /*padding: 0px 30px;*/
+    /*box-sizing: border-box;*/
+    /*display: flex;*/
+    /*alignItems: center;*/
+    /*justifyContent: center;*/
+    height: 100%;
+}
+
+#main_title{
+    font-size: 55px;
+}
+
+#main_title_desc{
+    font-size: 20px;
+}
+
+/*.start_button{*/
+/*    border: 2px solid;*/
+
+/*}*/
