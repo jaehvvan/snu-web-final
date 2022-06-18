@@ -1,33 +1,34 @@
+import { Box, Grid } from '@mui/material';
+import { Link, Navigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import ScoreBoard from '../components/ScoreBoard';
 import YoutubeModal from '../components/YoutubePlayer';
-import { Link} from 'react-router-dom';
-import { Grid, Box } from '@mui/material';
-import Team from '../components/Team';
-import { useState } from 'react';
+import { AtomMusicIdx, AtomMusics } from '../store/atom';
 import '../styles/card.css';
 
-const YoutubePage = ({music, teams, setTeams, isLast}) => {
-  const [changed, setChanged] = useState(false);
+const YoutubePage = () => {
+  const [musics, setMusics] = useRecoilState(AtomMusics);
+  const [musicIdx, setMusicIdx] = useRecoilState(AtomMusicIdx);
 
-  const increaseScore = (index) => {
-    if (!changed) {
-      setTeams(
-        teams.map((team, idx) => (idx === index ? { ...team, score: team.score + 1 } : team)),
-      );
-      setChanged(true);
-    }
-  };
+  if (musicIdx >= musics.length) {
+    return <Navigate to="/finish" />;
+  }
+
+  const music = musics[musicIdx];
+  const isLast = musics.length === musicIdx - 1;
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
-        {teams.map((team, idx) => (
-          <Grid item xs={12 / teams.length} key={team.name}>
-            <Team onClickTeam={() => increaseScore(idx)} name={team.name} score={team.score} />
-          </Grid>
-        ))}
+        <ScoreBoard />
         <Grid item xs={8}>
           <YoutubeModal videoID={music.id} timestamp={music.timestamp} />
-          <Link to={isLast ? '/finish' : '/question'}>Next</Link>
+          <Link
+            to={isLast ? '/finish' : '/question'}
+            onClick={() => setMusicIdx(isLast ? musicIdx : musicIdx + 1)}
+          >
+            Next
+          </Link>
         </Grid>
       </Grid>
     </Box>

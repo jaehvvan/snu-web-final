@@ -1,6 +1,3 @@
-import React, {useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/setting.css';
 import SettingsIcon from '@mui/icons-material/Settings';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -116,6 +113,7 @@ const SettingPage = () => {
                 </div>
             </ThemeProvider>
         </div>
+      </div>
     </div>
   );
 };
