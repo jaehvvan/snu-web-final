@@ -29,14 +29,20 @@ const LandingPage = () => {
       <div id="desc">
         <div id="main_title">노래 제목 맞추기 게임</div>
         <div id="main_title_desc">
-          "술자리에서든, MT에서든, {'\n'} 가벼운 즐거움이 필요한 곳 어디서든 플레이하세요"
+          술자리에서든, MT에서든 <br /> 가벼운 즐거움이 필요한 곳 어디서든 플레이하세요
+        </div>
+        <div>
+          {!user && <div onClick={handleLogin}>Login</div>}
+          <button id="start_button">
+            <Link to="/setting" onClick={clearState}>
+              시작
+            </Link>
+          </button>
+          <div style={{ position: 'absolute', bottom: '20px', right: '20px' }} id="team_name">
+            made by 6조
+          </div>
         </div>
       </div>
-      {!user && <div onClick={handleLogin}>Login</div>}
-      <Link to="/setting" id="start_button" onClick={clearState}>
-        시작
-      </Link>
-      <div id="team_name">made by 6조</div>
     </div>
   );
 };
