@@ -5,6 +5,7 @@ import { RecoilRoot } from 'recoil';
 
 import './styles/reset.scss';
 import './styles/normalize.scss';
+import './styles/setting.css';
 import './styles/fonts.css';
 import './styles/index.scss';
 import './styles/scoreBoard.scss';
