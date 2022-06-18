@@ -9,12 +9,24 @@ import Select from '@mui/material/Select';
 import {Button} from "@mui/material";
 import CampaignIcon from '@mui/icons-material/Campaign';
 import LyricsIcon from '@mui/icons-material/Lyrics';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import TextField from '@mui/material/TextField';
 
 const SettingPage = () => {
     const [team, setTeam] = useState('');
+    const [teamName, setTeamName] = useState([]);
     const [year, setYear] = useState('');
     const [category, setCategory] = useState('');
     const [problem, setProblem] = useState('');
+
+    const theme = createTheme({
+        palette: {
+            neutral: {
+                main: '#fa9f4e',
+                contrastText: 'black',
+            },
+        },
+    });
 
     return (
     <div id="layoutDom">
@@ -35,6 +47,15 @@ const SettingPage = () => {
                 </Select>
             </FormControl>
         </div>
+        {team &&
+            <div id="teamNameDom">
+                {Array.from(Array(team)).map(e =>
+                    <TextField
+                        helperText="팀 이름을 입력해 주세요"
+                        label="팀 이름"
+                                            
+                    />)}
+            </div>}
         <div id="yearDom">
             <FormControl fullWidth>
                 <InputLabel>OO년대</InputLabel>
@@ -79,19 +100,21 @@ const SettingPage = () => {
             </FormControl>
         </div>
         <div id="buttonDom">
-            <div>
-                <Button variant="outlined" size="large" onclick="">
-                    <CampaignIcon></CampaignIcon> 사회자만 정답 보기
-                </Button>
-            </div>
-            <div>
-                <Button variant="outlined" size="large">
-                    <LyricsIcon></LyricsIcon>
-                    <Link to="/question">
-                        게임 시작
-                    </Link>
-                </Button>
-            </div>
+            <ThemeProvider theme={theme}>
+                <div>
+                    <Button variant="outlined" size="large" onclick="" color="neutral">
+                        <CampaignIcon></CampaignIcon> 사회자만 정답 보기
+                    </Button>
+                </div>
+                <div>
+                    <Button variant="outlined" size="large" color="neutral">
+                        <LyricsIcon></LyricsIcon>
+                        <Link to="/question">
+                            게임 시작
+                        </Link>
+                    </Button>
+                </div>
+            </ThemeProvider>
         </div>
     </div>
   );
