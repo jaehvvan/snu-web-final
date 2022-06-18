@@ -1,4 +1,3 @@
-import { Grid } from '@mui/material';
 import { useRecoilState } from 'recoil';
 import { AtomTeams } from '../store/atom';
 import Team from './Team';
@@ -14,9 +13,9 @@ const ScoreBoard = () => {
     <div className="ScoreBoard">
       {teams.map(({ id, name, score }) => {
         return (
-          <Grid item xs={12 / teams.length} key={id}>
+          <div className="ScoreBoard__team">
             <Team onClickTeam={() => handleClick(id)} name={name} score={score} />
-          </Grid>
+          </div>
         );
       })}
     </div>
