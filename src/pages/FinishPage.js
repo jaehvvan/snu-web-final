@@ -1,4 +1,8 @@
-import Fireworks from 'fireworks';
+import { Fireworks } from 'fireworks/lib/react';
+import '../styles/finishPage.css';
+import { useRecoilState } from 'recoil';
+import { AtomTeams } from '../store/atom';
+import Rank from '../components/Rank';
 
 const FinishPage = () => {
   let fxProps = {
@@ -16,13 +20,31 @@ const FinishPage = () => {
     }),
   };
 
+  const [teams, setTeams] = useRecoilState(AtomTeams);
+  console.log(teams);
+  let sorted = [...teams];
+
+  sorted = sorted.sort(function (first, second) {
+    return second.score - first.score;
+  });
+  console.log(sorted);
+
   return (
     <div>
-      <div>
-        <Fireworks {...fxProps} />
-        <h1>게임이 종료되었습니다</h1>
+      <Fireworks {...fxProps} />
+      <div id="finish_text">
+        <h1 id="ment">게임이 종료되었습니다</h1>
+
+        {sorted.map(({ id, name, score }) => {
+          return (
+            <div className="ScoreBoard">
+              <Rank name={name} score={score} />
+            </div>
+          );
+        })}
+
+        <div id="rank"> rankinggggggg #1 #2 #3 #4</div>
       </div>
-      <div>FinishPage</div>
     </div>
   );
 };
