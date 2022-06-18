@@ -6,6 +6,8 @@ import LandingPage from './pages/LandingPage';
 import QuestionPage from './pages/QuestionPage';
 import SettingPage from './pages/SettingPage';
 import YoutubePage from './pages/YoutubePage';
+import { useRecoilState } from 'recoil';
+import { AcurQuestionIdx } from './store/atom';
 
 const dummy_teams = [
   { id: 0, name: '팀 A', score: 0 },
@@ -18,6 +20,7 @@ const dummy_musics = [{ id: 'tOtesnkPJeg', timestamp: 1 }];
 
 function App() {
   const [musics, setMusics] = useState(dummy_musics);
+  const [curQuestionIdx, setCurQuestionIdx] = useRecoilState(AcurQuestionIdx);
   const [index, setIndex] = useState(0);
   const [teams, setTeams] = useState(dummy_teams);
 
