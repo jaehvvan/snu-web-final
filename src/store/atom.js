@@ -35,3 +35,21 @@ export const AtomUser = atom({
   default: undefined,
   effects_UNSTABLE: [persistAtom],
 });
+
+export const AtomYear = atom({
+  key: 'AtomYear',
+  default: '',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const AtomCategory = atom({
+  key: 'AtomCategory',
+  default: '',
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const AtomproblemCount = atom({
+  key: 'AtomProblemCount',
+  default: '',
+  effects_UNSTABLE: [persistAtom],
+});
