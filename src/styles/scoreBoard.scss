@@ -1,0 +1,27 @@
+@import './utils.scss';
+
+.ScoreBoard {
+  @include borderBox();
+  display: flex;
+  width: 100%;
+
+  * {
+    @include borderBox();
+  }
+
+  &__btn {
+    @include resetBtn();
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 16px;
+    background-color: rgb(255, 255, 50);
+    cursor: pointer;
+
+    & + & {
+      border-left: 2px solid rgb(251, 202, 22);
+    }
+  }
+}
