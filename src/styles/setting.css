@@ -1,13 +1,13 @@
 #layoutDom{
     margin: 10px;
-    border: 10px solid skyblue;
+    border: 10px solid #f9b256;
     border-radius: 5px;
     padding: 5px;
 }
 
 #titleDom{
     font-size: 50px;
-    color: lightskyblue;
+    color: #fa9f4e;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
