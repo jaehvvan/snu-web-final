@@ -7,15 +7,13 @@ import ScoreBoard from '../components/ScoreBoard';
 
 const QuestionPage = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <ScoreBoard />
-        <QuestionProgress />
-        <MusicPlayer />
-        <Hint />
-        <Link to="/youtube">정답 공개</Link>
-      </Grid>
-    </Box>
+    <div className="QuestionPage">
+      <ScoreBoard />
+      <QuestionProgress />
+      <MusicPlayer />
+      <Hint />
+      <Link to="/youtube">정답 공개</Link>
+    </div>
   );
 };
 
