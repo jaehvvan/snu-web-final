@@ -1,3 +1,6 @@
+import Fireworks from 'fireworks';
+import '../styles/landingpage.css';
+
 const FinishPage = () => {
   let fxProps = {
     count: 6,
