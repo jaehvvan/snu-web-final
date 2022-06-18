@@ -18,20 +18,18 @@ const YoutubePage = () => {
   const isLast = musics.length === musicIdx - 1;
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <ScoreBoard />
-        <Grid item xs={8}>
-          <YoutubeModal videoID={music.id} timestamp={music.timestamp} />
-          <Link
-            to={isLast ? '/finish' : '/question'}
-            onClick={() => setMusicIdx(isLast ? musicIdx : musicIdx + 1)}
-          >
-            Next
-          </Link>
-        </Grid>
+    <div>
+      <ScoreBoard />
+      <Grid item xs={8}>
+        <YoutubeModal videoID={music.id} timestamp={music.timestamp} />
+        <Link
+          to={isLast ? '/finish' : '/question'}
+          onClick={() => setMusicIdx(isLast ? musicIdx : musicIdx + 1)}
+        >
+          Next
+        </Link>
       </Grid>
-    </Box>
+    </div>
   );
 };
 
