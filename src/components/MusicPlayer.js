@@ -1,6 +1,6 @@
-import { Grid } from '@mui/material';
 import { useState } from 'react';
 import ReactPlayer from 'react-player';
+import { Link } from 'react-router-dom';
 
 const MusicPlayer = () => {
   const [playing, setPlaying] = useState(false);
@@ -14,17 +14,17 @@ const MusicPlayer = () => {
   };
 
   return (
-    <Grid item>
-      <div className="MusicPlayer">
-        <div className="MusicPlayer__youtube">
-          <ReactPlayer
-            playing={playing}
-            url={'https://www.youtube.com/watch?v=cLQ63H538Qw'}
-            config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
-          />
-        </div>
-        <div className="MusicPlayer__img"></div>
-        <div className="MusicPlayer__btnContainer">
+    <div className="MusicPlayer">
+      <div className="MusicPlayer__youtube">
+        <ReactPlayer
+          playing={playing}
+          url={'https://www.youtube.com/watch?v=cLQ63H538Qw'}
+          config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
+        />
+      </div>
+      <div className="MusicPlayer__img"></div>
+      <div className="MusicPlayer__controlContainer">
+        <div className="MusicPlayer__controls">
           <button className="MusicPlayer__btn" name="1000" onClick={handlePlay}>
             1초 듣기
           </button>
@@ -35,8 +35,11 @@ const MusicPlayer = () => {
             전체 듣기
           </button>
         </div>
+        <Link className="MusicPlayer__anchor" to="/youtube">
+          정답 공개
+        </Link>
       </div>
-    </Grid>
+    </div>
   );
 };
 
