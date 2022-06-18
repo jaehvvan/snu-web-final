@@ -10,13 +10,15 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+import { AtomCategory, AtomproblemCount, AtomTeams, AtomYear } from '../store/atom';
 
 const SettingPage = () => {
-  const [team, setTeam] = useState('');
-  const [teamName, setTeamName] = useState([]);
-  const [year, setYear] = useState('');
-  const [category, setCategory] = useState('');
-  const [problem, setProblem] = useState('');
+  const [teamCount, setTeamCount] = useState('');
+  const [teams, setTeams] = useRecoilState(AtomTeams);
+  const [year, setYear] = useRecoilState(AtomYear);
+  const [category, setCategory] = useRecoilState(AtomCategory);
+  const [problemCount, setProblemCount] = useRecoilState(AtomproblemCount);
 
   const theme = createTheme({
     palette: {
@@ -27,6 +29,13 @@ const SettingPage = () => {
     },
   });
 
+  const changeTeamName = (idx, value) => {
+    if (teams.length === 0) {
+      setTeams([...new Array(teamCount)].map((_) => Object));
+    }
+    setTeams(teams.map((team) => (team.id === idx ? { ...team, name: value } : team)));
+  };
+
   return (
     <div id="layoutDom">
       <div id="titleDom">
@@ -35,17 +44,21 @@ const SettingPage = () => {
       <div id="teamDom">
         <FormControl fullWidth>
           <InputLabel>팀 수</InputLabel>
-          <Select value={team} label="팀 수" onChange={(e) => setTeam(e.target.value)}>
+          <Select value={teamCount} label="팀 수" onChange={(e) => setTeamCount(e.target.value)}>
             <MenuItem value={2}>2</MenuItem>
             <MenuItem value={3}>3</MenuItem>
             <MenuItem value={4}>4</MenuItem>
           </Select>
         </FormControl>
       </div>
-      {team && (
+      {teamCount && (
         <div id="teamNameDom">
-          {Array.from(Array(team)).map((e) => (
-            <TextField helperText="팀 이름을 입력해 주세요" label="팀 이름" />
+          {[...new Array(teamCount)].map((idx) => (
+            <TextField
+              helperText="팀 이름을 입력해 주세요"
+              label="팀 이름"
+              onChange={(e) => changeTeamName(idx, e.target.value)}
+            />
           ))}
         </div>
       )}
@@ -53,9 +66,9 @@ const SettingPage = () => {
         <FormControl fullWidth>
           <InputLabel>OO년대</InputLabel>
           <Select value={year} label="OO년대" onChange={(e) => setYear(e.target.value)}>
-            <MenuItem value={'1990년대'}>1990년대</MenuItem>
-            <MenuItem value={'2000년대'}>2000년대</MenuItem>
-            <MenuItem value={'2010년대'}>2010년대</MenuItem>
+            <MenuItem value='1990년대'>1990년대</MenuItem>
+            <MenuItem value='2000년대'>2000년대</MenuItem>
+            <MenuItem value='2010년대'>2010년대</MenuItem>
           </Select>
         </FormControl>
       </div>
@@ -71,7 +84,7 @@ const SettingPage = () => {
       <div id="numberOfProblemDom">
         <FormControl fullWidth>
           <InputLabel>문제 수</InputLabel>
-          <Select value={problem} label="문제 수" onChange={(e) => setProblem(e.target.value)}>
+          <Select value={problemCount} label="문제 수" onChange={(e) => setProblemCount(e.target.value)}>
             <MenuItem value={1}>1</MenuItem>
             <MenuItem value={2}>2</MenuItem>
             <MenuItem value={3}>3</MenuItem>
@@ -83,13 +96,13 @@ const SettingPage = () => {
       <div id="buttonDom">
         <ThemeProvider theme={theme}>
           <div>
-            <Button variant="outlined" size="large" onclick="" color="neutral">
-              <CampaignIcon></CampaignIcon> 사회자만 정답 보기
+            <Button variant="outlined" size="large" onClick="" color="neutral">
+              <CampaignIcon /> 정답 메일 발송
             </Button>
           </div>
           <div>
             <Button variant="outlined" size="large" color="neutral">
-              <LyricsIcon></LyricsIcon>
+              <LyricsIcon />
               <Link to="/question">게임 시작</Link>
             </Button>
           </div>

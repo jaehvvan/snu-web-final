@@ -5,23 +5,12 @@
     background-size: cover;
     background-position: center;
     display: flex;
-    alignItems: center;
-    justifyContent: center;
+    align-items: center;
+    justify-content: center;
 }
 
 #desc{
-    /*display: block !important;*/
-    /*width: 100%;*/
-    /*left: 0px;*/
-    /*top: 50%;*/
-    /*margin-left: 0px;*/
     text-align: center;
-    /*padding: 0px 30px;*/
-    /*box-sizing: border-box;*/
-    /*display: flex;*/
-    /*alignItems: center;*/
-    /*justifyContent: center;*/
-    height: 100%;
 }
 
 #main_title{

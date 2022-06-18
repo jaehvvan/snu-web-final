@@ -42,7 +42,6 @@ const LandingPage = () => {
             </span>
           </button>
           <div id="team_name">made by 6조</div>
-          <div id="team_name">made by 6조</div>
         </div>
       </div>
     </div>
