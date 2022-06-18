@@ -5,8 +5,8 @@
     background-size: cover;
     background-position: center;
     display: flex;
-    alignItems: center;
-    justifyContent: center;
+    align-items: center;
+    justify-content: center;
 }
 
 #desc{
@@ -21,7 +21,7 @@
     /*display: flex;*/
     /*alignItems: center;*/
     /*justifyContent: center;*/
-    height: 100%;
+    /*height: 100%;*/
 }
 
 #main_title{
@@ -30,6 +30,7 @@
 
 #main_title_desc{
     font-size: 20px;
+    padding-bottom: 20%;
 }
 
 /*.start_button{*/
