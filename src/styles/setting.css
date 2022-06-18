@@ -1,15 +1,19 @@
 #layoutDom{
-
+    margin: 10px;
+    border: 10px solid skyblue;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 #titleDom{
     font-size: 50px;
+    color: lightskyblue;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-#teamDom, #CategoryDom, #NumberOfProblemDom{
+#teamDom, #yearDom, #categoryDom, #numberOfProblemDom{
     margin-bottom: 30px;
 }
 
@@ -17,4 +21,5 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-bottom: 10px;
 }

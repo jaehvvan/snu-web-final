@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/setting.css';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -11,9 +11,10 @@ import CampaignIcon from '@mui/icons-material/Campaign';
 import LyricsIcon from '@mui/icons-material/Lyrics';
 
 const SettingPage = () => {
-    const [team, setTeam] = useState(0);
+    const [team, setTeam] = useState('');
+    const [year, setYear] = useState('');
     const [category, setCategory] = useState('');
-    const [problem, setProblem] = useState(0);
+    const [problem, setProblem] = useState('');
 
     return (
     <div id="layoutDom">
@@ -24,9 +25,9 @@ const SettingPage = () => {
             <FormControl fullWidth>
                 <InputLabel>팀 수</InputLabel>
                 <Select
-                    //value={team}
+                    value={team}
                     label="팀 수"
-                    //onChange={setTeam(team)}
+                    onChange={e => setTeam(e.target.value)}
                 >
                     <MenuItem value={2}>2</MenuItem>
                     <MenuItem value={3}>3</MenuItem>
@@ -34,27 +35,40 @@ const SettingPage = () => {
                 </Select>
             </FormControl>
         </div>
-        <div id="CategoryDom">
+        <div id="yearDom">
+            <FormControl fullWidth>
+                <InputLabel>OO년대</InputLabel>
+                <Select
+                    value={year}
+                    label="OO년대"
+                    onChange={e => setYear(e.target.value)}
+                >
+                    <MenuItem value={"1990년대"}>1990년대</MenuItem>
+                    <MenuItem value={"2000년대"}>2000년대</MenuItem>
+                    <MenuItem value={"2010년대"}>2010년대</MenuItem>
+                </Select>
+            </FormControl>
+        </div>
+        <div id="categoryDom">
             <FormControl fullWidth>
                 <InputLabel>카테고리</InputLabel>
                 <Select
-                    //value={age}
+                    value={category}
                     label="카테고리"
-                    //onChange={handleChange}
+                    onChange={e => setCategory(e.target.value)}
                 >
-                    <MenuItem value={2}>2</MenuItem>
-                    <MenuItem value={3}>3</MenuItem>
-                    <MenuItem value={4}>4</MenuItem>
+                    <MenuItem value={"국내"}>국내</MenuItem>
+                    <MenuItem value={"해외"}>해외</MenuItem>
                 </Select>
             </FormControl>
         </div>
-        <div id="NumberOfProblemDom">
+        <div id="numberOfProblemDom">
             <FormControl fullWidth>
                 <InputLabel>문제 수</InputLabel>
                 <Select
-                    //value={age}
+                    value={problem}
                     label="문제 수"
-                    //onChange={handleChange}
+                    onChange={e => setProblem(e.target.value)}
                 >
                     <MenuItem value={1}>1</MenuItem>
                     <MenuItem value={2}>2</MenuItem>
@@ -66,12 +80,12 @@ const SettingPage = () => {
         </div>
         <div id="buttonDom">
             <div>
-                <Button variant="outlined">
+                <Button variant="outlined" size="large" onclick="">
                     <CampaignIcon></CampaignIcon> 사회자만 정답 보기
                 </Button>
             </div>
             <div>
-                <Button variant="outlined">
+                <Button variant="outlined" size="large">
                     <LyricsIcon></LyricsIcon>
                     <Link to="/question">
                         게임 시작
