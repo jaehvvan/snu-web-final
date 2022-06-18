@@ -24,12 +24,6 @@ export const AtomTeams = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const AtomQuestionIdx = atom({
-  key: 'AtomQuestionIdx',
-  default: 0,
-  effects_UNSTABLE: [persistAtom],
-});
-
 export const AtomMusicIdx = atom({
   key: 'AtomMusicIdx',
   default: 0,
