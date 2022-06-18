@@ -1,4 +1,4 @@
-import YoutubeModal from '../components/YoutubeModal';
+import YoutubeModal from '../components/YoutubePlayer';
 import { Link} from 'react-router-dom';
 import { Grid, Box } from '@mui/material';
 import Team from '../components/Team';
