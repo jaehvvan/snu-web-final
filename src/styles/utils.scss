@@ -1,0 +1,8 @@
+@mixin borderBox {
+  box-sizing: border-box;
+}
+
+@mixin resetBtn {
+  background-color: transparent;
+  border: none;
+}
