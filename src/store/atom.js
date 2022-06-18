@@ -29,3 +29,9 @@ export const AtomMusicIdx = atom({
   default: 0,
   effects_UNSTABLE: [persistAtom],
 });
+
+export const AtomUser = atom({
+  key: 'AtomUser',
+  default: undefined,
+  effects_UNSTABLE: [persistAtom],
+});
