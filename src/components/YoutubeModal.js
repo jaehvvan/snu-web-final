@@ -1,8 +1,6 @@
 import YouTube from 'react-youtube';
 
-const VideoModal = (props) => {
-  const { videoID, timestamp } = props;
-
+const VideoModal = ({videoID, timestamp}) => {
   return <YouTube videoId={videoID} onReady={(e) => e.target.seekTo(timestamp)} />;
 };
 
