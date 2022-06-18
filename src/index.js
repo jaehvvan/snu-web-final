@@ -7,6 +7,7 @@ import './styles/normalize.scss';
 import './styles/fonts.css';
 import './styles/scoreBoard.scss';
 import './styles/fonts.css';
+import './styles/scoreBoard.scss';
 
 import { BrowserRouter } from 'react-router-dom';
 
