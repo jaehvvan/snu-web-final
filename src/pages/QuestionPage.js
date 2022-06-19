@@ -11,7 +11,6 @@ const QuestionPage = () => {
       <QuestionProgress />
       <MusicPlayer />
       <HintButton />
-      <Link to="/youtube">정답 공개</Link>
     </div>
   );
 };
