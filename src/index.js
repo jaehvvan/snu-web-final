@@ -11,6 +11,8 @@ import './styles/index.scss';
 import './styles/scoreBoard.scss';
 import './styles/questionProgress.scss';
 import './styles/musicPlayer.scss';
+import './styles/hintButton.scss';
+import './styles/hintModal.scss';
 
 import { BrowserRouter } from 'react-router-dom';
 

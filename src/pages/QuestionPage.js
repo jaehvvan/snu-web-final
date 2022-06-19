@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Hint from '../components/Hint';
+import HintButton from '../components/HintButton';
 import MusicPlayer from '../components/MusicPlayer';
 import QuestionProgress from '../components/QuestionProgress';
 import ScoreBoard from '../components/ScoreBoard';
@@ -10,7 +10,7 @@ const QuestionPage = () => {
       <ScoreBoard />
       <QuestionProgress />
       <MusicPlayer />
-      <Hint />
+      <HintButton />
       <Link to="/youtube">정답 공개</Link>
     </div>
   );

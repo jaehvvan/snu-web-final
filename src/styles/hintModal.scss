@@ -1,0 +1,123 @@
+@import './utils.scss';
+
+.HintModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  min-height: 360px;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid #f2f3f7;
+  border-radius: 20px;
+  box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+
+  &__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.3;
+    background-color: #f2f3f7;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    font-size: 24px;
+  }
+
+  &__closeBtn {
+    @include resetBtn();
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #f2f3f7;
+    }
+  }
+
+  &__closeIcon {
+    width: 32px;
+    height: 32px;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../assets/images/close_icon.svg');
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    flex-grow: 1;
+    transition: background-color 0.2s;
+    font-size: 20px;
+
+    &:hover {
+      background-color: #f2f3f7;
+    }
+  }
+
+  &__type {
+    font-size: 20px;
+    height: 65.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+  }
+
+  &__desc {
+    font-size: 20px;
+    padding: 16px;
+  }
+
+  &__backBtn {
+    @include resetBtn();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    margin-top: auto;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    background-color: #b7c5ff;
+
+    &:hover {
+      background-color: #8fa5ff;
+    }
+  }
+}
