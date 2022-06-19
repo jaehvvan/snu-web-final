@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import {
@@ -87,6 +87,7 @@ const SettingPage = () => {
               label="팀 이름"
               onChange={(e) => changeTeamName(idx, e.target.value)}
               value={team.name}
+              margin="normal"
             />
           ))}
         </div>
