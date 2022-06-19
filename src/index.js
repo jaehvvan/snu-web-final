@@ -9,6 +9,7 @@ import './styles/setting.css';
 import './styles/fonts.css';
 import './styles/index.scss';
 import './styles/scoreBoard.scss';
+import './styles/questionPage.scss';
 import './styles/questionProgress.scss';
 import './styles/musicPlayer.scss';
 import './styles/hintButton.scss';

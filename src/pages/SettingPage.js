@@ -8,17 +8,40 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-import { AtomCategory, AtomproblemCount, AtomTeams, AtomYear } from '../store/atom';
+import {
+  AtomCategory,
+  AtomMusics,
+  AtomproblemCount,
+  AtomTeams,
+  AtomUser,
+  AtomYear
+} from '../store/atom';
 
 const SettingPage = () => {
   const [teamCount, setTeamCount] = useState('');
   const [teams, setTeams] = useRecoilState(AtomTeams);
+  const [user, setUser] = useRecoilState(AtomUser);
   const [year, setYear] = useRecoilState(AtomYear);
   const [category, setCategory] = useRecoilState(AtomCategory);
   const [problemCount, setProblemCount] = useRecoilState(AtomproblemCount);
+  const [musics, setMusics] = useRecoilState(AtomMusics);
+
+  const updateTeamCount = (value) => {
+    if (teams.length !== value) {
+      setTeams(
+        [...new Array(value)].map((x, idx) => {
+          return {
+            name: `Team ${idx}`,
+            score: '0',
+          };
+        }),
+      );
+      setTeamCount(value);
+    }
+  };
 
   const theme = createTheme({
     palette: {
@@ -29,11 +52,16 @@ const SettingPage = () => {
     },
   });
 
-  const changeTeamName = (idx, value) => {
-    if (teams.length === 0) {
-      setTeams([...new Array(teamCount)].map((_) => Object));
+  const sendEmail = async (e) => {
+    if (musics.length === 0) {
+      alert('먼저 조회 조건을 잘 설정해 주세용!');
+      return;
     }
-    setTeams(teams.map((team) => (team.id === idx ? { ...team, name: value } : team)));
+    console.log("Not implemented");
+  };
+
+  const changeTeamName = (idx, value) => {
+    setTeams(teams.map((team, index) => (index === idx ? { ...team, name: value } : team)));
   };
 
   return (
@@ -44,7 +72,7 @@ const SettingPage = () => {
       <div id="teamDom">
         <FormControl fullWidth>
           <InputLabel>팀 수</InputLabel>
-          <Select value={teamCount} label="팀 수" onChange={(e) => setTeamCount(e.target.value)}>
+          <Select value={teamCount} label="팀 수" onChange={(e) => updateTeamCount(e.target.value)}>
             <MenuItem value={2}>2</MenuItem>
             <MenuItem value={3}>3</MenuItem>
             <MenuItem value={4}>4</MenuItem>
@@ -53,11 +81,13 @@ const SettingPage = () => {
       </div>
       {teamCount && (
         <div id="teamNameDom">
-          {[...new Array(teamCount)].map((idx) => (
+          {teams.map((team, idx) => (
             <TextField
               helperText="팀 이름을 입력해 주세요"
               label="팀 이름"
               onChange={(e) => changeTeamName(idx, e.target.value)}
+              value={team.name}
+              margin="normal"
             />
           ))}
         </div>
@@ -66,9 +96,9 @@ const SettingPage = () => {
         <FormControl fullWidth>
           <InputLabel>OO년대</InputLabel>
           <Select value={year} label="OO년대" onChange={(e) => setYear(e.target.value)}>
-            <MenuItem value='1990년대'>1990년대</MenuItem>
-            <MenuItem value='2000년대'>2000년대</MenuItem>
-            <MenuItem value='2010년대'>2010년대</MenuItem>
+            <MenuItem value="1990년대">1990년대</MenuItem>
+            <MenuItem value="2000년대">2000년대</MenuItem>
+            <MenuItem value="2010년대">2010년대</MenuItem>
           </Select>
         </FormControl>
       </div>
@@ -84,7 +114,11 @@ const SettingPage = () => {
       <div id="numberOfProblemDom">
         <FormControl fullWidth>
           <InputLabel>문제 수</InputLabel>
-          <Select value={problemCount} label="문제 수" onChange={(e) => setProblemCount(e.target.value)}>
+          <Select
+            value={problemCount}
+            label="문제 수"
+            onChange={(e) => setProblemCount(e.target.value)}
+          >
             <MenuItem value={1}>1</MenuItem>
             <MenuItem value={2}>2</MenuItem>
             <MenuItem value={3}>3</MenuItem>
@@ -96,7 +130,7 @@ const SettingPage = () => {
       <div id="buttonDom">
         <ThemeProvider theme={theme}>
           <div>
-            <Button variant="outlined" size="large" onClick="" color="neutral">
+            <Button variant="outlined" size="large" onClick={sendEmail} color="neutral">
               <CampaignIcon /> 정답 메일 발송
             </Button>
           </div>

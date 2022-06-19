@@ -1,4 +1,4 @@
-import Fireworks from 'fireworks';
+import { Fireworks } from 'fireworks/lib/react';
 
 const FinishPage = () => {
   let fxProps = {

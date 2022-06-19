@@ -10,3 +10,7 @@
 4. 노래의 제목을 맞춘 팀이 나오면 사회자가 정답 팀을 선택하고, 이는 스코어보드에 반영된다.
 5. 노래의 제목을 맞춘 팀이 없을 경우, replay나 pass가 가능함.
 6. 게임이 종료되면 최종 스코어가 보여진다.
+
+## 배포
+- main branch에 PR을 생성하면 build 후 firebase pr별로 hosting이 진행된다.
+- main branch에 push 되면 firebase https://test-31fdf.web.app/ 에 코드가 배포된다. 
