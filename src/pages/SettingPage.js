@@ -18,7 +18,6 @@ const SettingPage = () => {
     const [year, setYear] = useState('');
     const [category, setCategory] = useState('');
     const [problem, setProblem] = useState('');
-
     const theme = createTheme({
         palette: {
             neutral: {
@@ -27,6 +26,27 @@ const SettingPage = () => {
             },
         },
     });
+
+    useEffect(() => {
+        if (team){
+            let teamNameArr = [];
+            for (let i = 0; i < team; i++){
+                teamNameArr.push(i.toString());
+            }
+            setTeamName(teamNameArr);
+        }
+    }, [team]);
+
+    const HandleOnChange = (e, num) => {
+        let teamNameArr = teamName;
+        teamNameArr[num] = e.target.value;
+        setTeamName(teamNameArr);
+        console.log(teamNameArr);
+    }
+
+    const copyAnswerURL = () => {
+
+    }
 
     return (
     <div id="layoutDom">
@@ -49,11 +69,11 @@ const SettingPage = () => {
         </div>
         {team &&
             <div id="teamNameDom">
-                {Array.from(Array(team)).map(e =>
+                {Array.from({length: team}, (v, i) => i).map(num =>
                     <TextField
                         helperText="팀 이름을 입력해 주세요"
                         label="팀 이름"
-                                            
+                        onChange={e => HandleOnChange(e,num)}
                     />)}
             </div>}
         <div id="yearDom">
@@ -102,7 +122,7 @@ const SettingPage = () => {
         <div id="buttonDom">
             <ThemeProvider theme={theme}>
                 <div>
-                    <Button variant="outlined" size="large" onclick="" color="neutral">
+                    <Button variant="outlined" size="large" onClick={copyAnswerURL()} color="neutral">
                         <CampaignIcon></CampaignIcon> 사회자만 정답 보기
                     </Button>
                 </div>
