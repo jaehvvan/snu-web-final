@@ -23,6 +23,7 @@ import {
 const SettingPage = () => {
   const [teamCount, setTeamCount] = useState('');
   const [teams, setTeams] = useRecoilState(AtomTeams);
+  const [innerTeams, setInnerTeams] = useState([]);
   const [user, setUser] = useRecoilState(AtomUser);
   const [year, setYear] = useRecoilState(AtomYear);
   const [category, setCategory] = useRecoilState(AtomCategory);
@@ -71,11 +72,20 @@ const SettingPage = () => {
     });
   };
 
-  const changeTeamName = (idx, value) => {
-    if (teams.length === 0) {
-      setTeams([...new Array(teamCount)].map((_) => Object));
+  useEffect(() => {
+    let teamsArr = [];
+    for (let i = 0; i < teamCount; i++){
+      teamsArr.push({id: i, name: '', score: 0});
     }
-    setTeams(teams.map((team) => (team.id === idx ? { ...team, name: value } : team)));
+    setInnerTeams(teamsArr);
+  }, [teamCount]);
+
+  useEffect(() => {
+    console.log(innerTeams);
+  }, [innerTeams]);
+
+  const changeTeamName = (idx, value) => {
+    setInnerTeams(innerTeams.map((team) => (team.id === idx ? { ...team, name: value } : team)));
   };
 
   return (
@@ -95,7 +105,7 @@ const SettingPage = () => {
       </div>
       {teamCount && (
         <div id="teamNameDom">
-          {[...new Array(teamCount)].map((idx) => (
+          {Array.from({length: teamCount}, (v, i) => i).map((idx) => (
             <TextField
               helperText="팀 이름을 입력해 주세요"
               label="팀 이름"
