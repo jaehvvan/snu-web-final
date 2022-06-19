@@ -1,17 +1,18 @@
+import { Link } from 'react-router-dom';
+import Hint from '../components/Hint';
+import MusicPlayer from '../components/MusicPlayer';
 import QuestionProgress from '../components/QuestionProgress';
 import ScoreBoard from '../components/ScoreBoard';
-import MusicPlayer from '../components/MusicPlayer';
-import Hint from '../components/Hint';
-import { Link } from 'react-router-dom';
 
 const QuestionPage = () => {
   return (
-    <div>
+    <div className="QuestionPage">
       <ScoreBoard />
       <QuestionProgress />
       <MusicPlayer />
-      <Hint />
-      <Link to="/youtube">정답 공개</Link>
+      <div className="QuestionPage__footer">
+        <Hint />
+      </div>
     </div>
   );
 };

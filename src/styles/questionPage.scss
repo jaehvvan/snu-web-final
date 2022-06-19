@@ -1,4 +1,5 @@
-.QuestionProgress {
-  @include borderBox();
-  display: flex;
+.QuestionPage {
+  &__footer {
+    display: flex;
+  }
 }
