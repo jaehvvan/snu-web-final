@@ -29,6 +29,22 @@ const SettingPage = () => {
   const [problemCount, setProblemCount] = useRecoilState(AtomproblemCount);
   const [musics, setMusics] = useRecoilState(AtomMusics);
 
+  const updateTeamCount = (value) => {
+    console.log(teams);
+    console.log(value);
+    if (teams.length !== value) {
+      setTeams(
+        [...new Array(value)].map((x, idx) => {
+          return {
+            name: `Team ${idx}`,
+            score: '0',
+          };
+        }),
+      );
+      setTeamCount(value);
+    }
+  };
+
   const theme = createTheme({
     palette: {
       neutral: {
@@ -72,10 +88,7 @@ const SettingPage = () => {
   };
 
   const changeTeamName = (idx, value) => {
-    if (teams.length === 0) {
-      setTeams([...new Array(teamCount)].map((_) => Object));
-    }
-    setTeams(teams.map((team) => (team.id === idx ? { ...team, name: value } : team)));
+    setTeams(teams.map((team, index) => (index === idx ? { ...team, name: value } : team)));
   };
 
   return (
@@ -86,7 +99,7 @@ const SettingPage = () => {
       <div id="teamDom">
         <FormControl fullWidth>
           <InputLabel>팀 수</InputLabel>
-          <Select value={teamCount} label="팀 수" onChange={(e) => setTeamCount(e.target.value)}>
+          <Select value={teamCount} label="팀 수" onChange={(e) => updateTeamCount(e.target.value)}>
             <MenuItem value={2}>2</MenuItem>
             <MenuItem value={3}>3</MenuItem>
             <MenuItem value={4}>4</MenuItem>
@@ -95,11 +108,12 @@ const SettingPage = () => {
       </div>
       {teamCount && (
         <div id="teamNameDom">
-          {[...new Array(teamCount)].map((idx) => (
+          {teams.map((team, idx) => (
             <TextField
               helperText="팀 이름을 입력해 주세요"
               label="팀 이름"
               onChange={(e) => changeTeamName(idx, e.target.value)}
+              value={team.name}
             />
           ))}
         </div>
