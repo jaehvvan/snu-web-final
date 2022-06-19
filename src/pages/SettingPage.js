@@ -30,8 +30,6 @@ const SettingPage = () => {
   const [musics, setMusics] = useRecoilState(AtomMusics);
 
   const updateTeamCount = (value) => {
-    console.log(teams);
-    console.log(value);
     if (teams.length !== value) {
       setTeams(
         [...new Array(value)].map((x, idx) => {
@@ -59,32 +57,7 @@ const SettingPage = () => {
       alert('먼저 조회 조건을 잘 설정해 주세용!');
       return;
     }
-    const params = {
-      service_id: 'service_c0hwjju',
-      user_id: 'l0CQc8UPXor38zjrK',
-      template_id: 'template_82r0e7p',
-      template_params: {
-        user_name: user.name,
-        user_email: user.email,
-        message: JSON.stringify(musics),
-      },
-    };
-
-    const headers = {
-      'Content-type': 'application/json',
-    };
-
-    const options = {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify(params),
-    };
-
-    fetch('https://api.emailjs.com/api/v1.0/email/send', options).then((httpResponse) => {
-      if (httpResponse.ok) {
-        alert('메일 발송 완료!!');
-      }
-    });
+    console.log("Not implemented");
   };
 
   const changeTeamName = (idx, value) => {
