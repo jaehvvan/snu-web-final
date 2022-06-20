@@ -1,0 +1,48 @@
+#finishing{
+    /*position:relative;*/
+    height: 100vh;
+    background-image: url("../assets/images/landingpage_v02.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*#ment{*/
+/*    position: absolute;*/
+/*    top: 15%;*/
+/*    font-size: 50px;*/
+/*}*/
+
+/*#finish_text{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    text-align: center;*/
+/*}*/
+
+/*#rank{*/
+/*    display: block;*/
+/*    position: absolute;*/
+/*    top: 30%;*/
+
+/*}*/
+
+.MuiTable-root .MuiTableHead-root .MuiTableCell-root {
+    font-family: '신서유기폰트';
+}
+
+.MuiTableBody-root{
+    font-weight: bold;
+    font-family: '신서유기폰트';
+}
+
+#table{
+    position: absolute;
+    top: 100px;
+}
+
+#container{
+    width : 300px;
+}
