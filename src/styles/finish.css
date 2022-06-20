@@ -8,6 +8,10 @@
     justify-content: center;
 }
 
+.css-177gid-MuiTableCell-root {
+    font-family: '신서유기폰트' !important;
+}
+
 .MuiTable-root .MuiTableHead-root .MuiTableCell-root {
     font-family: '신서유기폰트';
 }
