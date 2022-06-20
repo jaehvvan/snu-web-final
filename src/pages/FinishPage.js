@@ -1,7 +1,5 @@
 import { Fireworks } from 'fireworks/lib/react';
 import '../styles/finishPage.css';
-import { useRecoilState } from 'recoil';
-import { AtomTeams } from '../store/atom';
 import MaterialTable from '../components/RankTable';
 
 const FinishPage = () => {
@@ -18,9 +16,6 @@ const FinishPage = () => {
       y: 200 + Math.random() * window.innerHeight - 50 + (i === 2 ? -80 : 0),
     }),
   };
-
-  const [teams, setTeams] = useRecoilState(AtomTeams);
-  [...teams].sort((x, y) => y.score - x.score);
 
   return (
     <div id="finishing">
