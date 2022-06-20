@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { RecoilRoot } from 'recoil';
 import App from './App';
 
-import './styles/finishPage.css';
+import './styles/finish.css';
 import './styles/fonts.css';
 import './styles/index.scss';
 import './styles/musicPlayer.scss';

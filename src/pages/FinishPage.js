@@ -25,10 +25,10 @@ const FinishPage = () => {
     <div id="finishing">
       <div>
         <Fireworks {...fxProps} />
-        <h1 class="ment">게임이 종료되었습니다</h1>
+        <h1>게임이 종료되었습니다</h1>
       </div>
       {/*<div id="rank"> rankinggggggg #1 #2 #3 #4</div>*/}
-      <MaterialTable class="table" />
+      <MaterialTable />
     </div>
   );
 };
