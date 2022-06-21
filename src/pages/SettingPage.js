@@ -35,7 +35,7 @@ const SettingPage = () => {
         [...new Array(value)].map((x, idx) => {
           return {
             name: `Team ${idx}`,
-            score: '0',
+            score: 0,
           };
         }),
       );
@@ -88,6 +88,7 @@ const SettingPage = () => {
               onChange={(e) => changeTeamName(idx, e.target.value)}
               value={team.name}
               margin="normal"
+              maxLength={10}
             />
           ))}
         </div>
