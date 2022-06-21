@@ -5,18 +5,17 @@ import App from './App';
 
 import './styles/reset.scss';
 import './styles/normalize.scss';
-import './styles/finish.css';
 import './styles/fonts.css';
 import './styles/index.scss';
 import './styles/musicPlayer.scss';
 import './styles/questionPage.scss';
 import './styles/questionProgress.scss';
-import './styles/musicPlayer.scss';
 import './styles/hintButton.scss';
 import './styles/hintModal.scss';
 import './styles/scoreBoard.scss';
 import './styles/setting.css';
 import './styles/description.scss';
+import './styles/finish.css';
 import { theme } from './styles/config';
 
 import { BrowserRouter } from 'react-router-dom';
