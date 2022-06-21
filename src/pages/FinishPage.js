@@ -1,7 +1,7 @@
 import { Fireworks } from 'fireworks/lib/react';
 import { Link } from 'react-router-dom';
-import { useRecoilState, useResetRecoilState } from 'recoil';
-import MaterialTable from '../components/RankTable';
+import { useResetRecoilState } from 'recoil';
+import RankTable from '../components/RankTable';
 import {AtomCategory, AtomMusicIdx, AtomMusics, AtomproblemCount, AtomTeams, AtomYear} from '../store/atom';
 
 const FinishPage = () => {
