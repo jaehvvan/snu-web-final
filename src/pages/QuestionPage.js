@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Hint from '../components/Hint';
+import HintButton from '../components/HintButton';
 import MusicPlayer from '../components/MusicPlayer';
 import QuestionProgress from '../components/QuestionProgress';
 import ScoreBoard from '../components/ScoreBoard';
@@ -10,9 +10,7 @@ const QuestionPage = () => {
       <ScoreBoard />
       <QuestionProgress />
       <MusicPlayer />
-      <div className="QuestionPage__footer">
-        <Hint />
-      </div>
+      <HintButton />
     </div>
   );
 };
