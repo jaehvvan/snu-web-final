@@ -16,15 +16,20 @@ import './styles/hintButton.scss';
 import './styles/hintModal.scss';
 import './styles/scoreBoard.scss';
 import './styles/setting.css';
+import { theme } from './styles/config';
 
 import { BrowserRouter } from 'react-router-dom';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <RecoilRoot>
       <BrowserRouter>
-        <App />
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <App />
+        </ThemeProvider>
       </BrowserRouter>
     </RecoilRoot>
   </React.StrictMode>,
