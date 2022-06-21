@@ -23,18 +23,16 @@ const SettingPage = () => {
   const [musics, setMusics] = useRecoilState(AtomMusics);
 
   const updateTeamCount = (value) => {
-    if (teams.length !== value) {
-      setTeams(
-        [...new Array(value)].map((x, idx) => {
-          return {
-            name: `Team ${idx}`,
-            score: 0,
-            id: idx,
-          };
-        }),
-      );
-      setTeamCount(value);
-    }
+    setTeams(
+      [...new Array(value)].map((x, idx) => {
+        return {
+          name: `Team ${idx}`,
+          score: 0,
+          id: idx,
+        };
+      }),
+    );
+    setTeamCount(value);
   };
 
   const theme = createTheme({
@@ -47,13 +45,19 @@ const SettingPage = () => {
   });
 
   const makeTeams = () => {
-    setMusics(
-      sample(
-        musicData
-          .filter((x) => year === 0 || (x.year >= year && x.year <= year + 10))
-          .filter((x) => category === '' || x.category === category),
-        { size: problemCount },
-      ),
+    const data = sample(
+      musicData
+        .map((data, index) => ({ ...data, id: index }))
+        .filter((x) => year === 0 || (x.year >= year && x.year <= year + 10))
+        .filter((x) => category === '' || x.category === category),
+      { size: problemCount },
+    );
+
+    setMusics(data);
+    const indexes = data.map((d) => d.id).join(',');
+    const checkSum = (data.reduce((acc, val) => acc + val.id, 0) % 96) + 1;
+    navigator.clipboard.writeText(
+      `https://test-31fdf.firebaseapp.com/answer?index=${indexes},${checkSum}`,
     );
   };
 
@@ -80,6 +84,7 @@ const SettingPage = () => {
         <div id="teamNameDom">
           {teams.map((team, idx) => (
             <TextField
+              key={team.id}
               helperText="팀 이름을 입력해 주세요"
               label="팀 이름"
               onChange={(e) => changeTeamName(idx, e.target.value)}
