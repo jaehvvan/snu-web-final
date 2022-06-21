@@ -1,4 +1,7 @@
 import { Fireworks } from 'fireworks/lib/react';
+import { useRecoilState } from 'recoil';
+import MaterialTable from '../components/RankTable';
+import { AtomTeams } from '../store/atom';
 
 const FinishPage = () => {
   let fxProps = {
@@ -8,7 +11,6 @@ const FinishPage = () => {
     bubbleSizeMaximum: 20,
     bubbleSizeMinimum: 5,
     colors: ['#ff6600', '#ff781f', '#ff8b3d', '#ff9d5c', '#ffaf7a', '#FCAE05'],
-    // colors: ['#cc3333', '#4CAF50', '#81C784'],
     calc: (props, i) => ({
       ...props,
       x: window.innerWidth * Math.random(),
@@ -16,13 +18,17 @@ const FinishPage = () => {
     }),
   };
 
+  const [teams, setTeams] = useRecoilState(AtomTeams);
+  [...teams].sort((x, y) => y.score - x.score);
+
   return (
-    <div>
+    <div id="finishing">
       <div>
         <Fireworks {...fxProps} />
         <h1>게임이 종료되었습니다</h1>
       </div>
-      <div>FinishPage</div>
+      {/*<div id="rank"> rankinggggggg #1 #2 #3 #4</div>*/}
+      <MaterialTable />
     </div>
   );
 };
