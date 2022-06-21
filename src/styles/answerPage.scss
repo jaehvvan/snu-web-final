@@ -1,6 +1,5 @@
 .AnswerPage {
   display: flex;
-  border: 1px solid black;
   margin: 100px;
 
   &__list {
@@ -11,24 +10,36 @@
 
   &__row {
     display: flex;
+    justify-content: space-between;
     width: 100%;
-    border-bottom: 1px solid black;
-    padding: 8px 16px;
+
+    &--odd {
+      background-color: rgb(239, 239, 239);
+
+      .AnswerPage__item--color & {
+        background-color: rgb(255, 249, 212);
+      }
+    }
   }
 
-  &__content {
+  &__key,
+  &__val {
+    width: 50%;
     display: flex;
-    width: 100%;
+    justify-content: center;
+    padding: 16px 8px;
   }
 
-  &__col {
-    width: 20%;
+  &__key {
+    border-right: 1px solid black;
   }
 
   &__item {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    padding: 8px 16px;
+    margin-bottom: 32px;
+    border: 1px solid black;
 
     &--color {
       background-color: rgb(253, 255, 212);

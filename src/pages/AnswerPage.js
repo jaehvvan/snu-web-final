@@ -39,14 +39,7 @@ const AnswerPage = () => {
   const renderList = () => {
     return (
       <ul className="AnswerPage__list">
-        <li className="AnswerPage__row">
-          <div className="AnswerPage__col">No.</div>
-          <div className="AnswerPage__col">artist</div>
-          <div className="AnswerPage__col">category</div>
-          <div className="AnswerPage__col">year</div>
-          <div className="AnswerPage__col">title</div>
-        </li>
-        {searchParams.map((idx, i) => createItem(dummy_data[idx], i))}
+        {searchParams.map((idxParam, i) => createItem(dummy_data[idxParam], i))}
       </ul>
     );
   };
@@ -55,15 +48,27 @@ const AnswerPage = () => {
     const { artist, category, year, title } = data;
 
     return (
-      <li
-        key={title}
-        className={`AnswerPage__item ${i % 2 === 0 ? 'AnswerPage__item--color' : ''}`}
-      >
-        <div className="AnswerPage__content">{i}</div>
-        <div className="AnswerPage__content">{artist}</div>
-        <div className="AnswerPage__content">{category}</div>
-        <div className="AnswerPage__content">{year}</div>
-        <div className="AnswerPage__content">{title}</div>
+      <li className={`AnswerPage__item ${i % 2 === 0 ? 'AnswerPage__item--color' : ''}`}>
+        <div className="AnswerPage__row AnswerPage__row--odd">
+          <div className="AnswerPage__key">No.</div>
+          <div className="AnswerPage__val">{i}</div>
+        </div>
+        <div className="AnswerPage__row">
+          <div className="AnswerPage__key">artist</div>
+          <div className="AnswerPage__val">{artist}</div>
+        </div>
+        <div className="AnswerPage__row AnswerPage__row--odd">
+          <div className="AnswerPage__key">category</div>
+          <div className="AnswerPage__val">{category}</div>
+        </div>
+        <div className="AnswerPage__row">
+          <div className="AnswerPage__key">year</div>
+          <div className="AnswerPage__val">{year}</div>
+        </div>
+        <div className="AnswerPage__row AnswerPage__row--odd">
+          <div className="AnswerPage__key">title</div>
+          <div className="AnswerPage__val">{title}</div>
+        </div>
       </li>
     );
   };
