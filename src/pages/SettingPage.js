@@ -131,17 +131,19 @@ const SettingPage = () => {
       </div>
       <div id="buttonDom">
         <ThemeProvider theme={theme}>
-          <div>
-            <Button variant="outlined" size="large" onClick={sendEmail} color="neutral">
-              <CampaignIcon /> 정답 메일 발송
-            </Button>
-          </div>
-          <div>
-            <Button variant="outlined" size="large" color="neutral">
-              <LyricsIcon />
-              <Link to="/question">게임 시작</Link>
-            </Button>
-          </div>
+          {(teamCount && year && category && problemCount) ?
+              (<div>
+                <Button variant="outlined" size="large" onClick={sendEmail} color="neutral">
+                  <CampaignIcon /> 정답 메일 발송
+                </Button>
+              </div>) : <div></div>}
+          {(teamCount && year && category && problemCount) ?
+              (<div>
+                <Button variant="outlined" size="large" color="neutral">
+                  <LyricsIcon />
+                  <Link to="/question">게임 시작</Link>
+                </Button>
+              </div>) : <div></div>}
         </ThemeProvider>
       </div>
     </div>
