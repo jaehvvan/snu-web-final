@@ -8,12 +8,14 @@
     justify-content: center;
 }
 
+
 .css-177gid-MuiTableCell-root {
     font-family: '신서유기폰트' !important;
 }
 
 .MuiTable-root .MuiTableHead-root .MuiTableCell-root {
     font-family: '신서유기폰트';
+    background-color: lightgray;
 }
 
 .MuiTableBody-root{
@@ -107,4 +109,11 @@ a:active { text-decoration: none}
 #finish {
     position: absolute;
     bottom: 10%;
+}
+
+h1 {
+    text-align: center;
+    position: absolute;
+    top: 25%;
+    font-size: 4em !important;
 }

@@ -15,7 +15,7 @@ const RankTable = () => {
   const rows = [...teams].sort((x, y) => y.score - x.score);
 
   return (
-    <TableContainer component={Paper} sx={{ width: '60%' }}>
+    <TableContainer component={Paper} sx={{ width: '30%' }}>
       <Table aria-label="customized table" sx={{ fontSize: 40 }}>
         <TableHead>
           <TableRow>
