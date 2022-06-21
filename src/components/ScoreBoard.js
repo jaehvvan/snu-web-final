@@ -13,7 +13,7 @@ const ScoreBoard = () => {
     <div className="ScoreBoard">
       {teams.map(({ id, name, score }) => {
         return (
-          <div className="ScoreBoard__team">
+          <div className="ScoreBoard__team" key={id}>
             <Team onClickTeam={() => handleClick(id)} name={name} score={score} />
           </div>
         );
