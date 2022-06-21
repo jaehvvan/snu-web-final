@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-import {useEffect, useState} from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import {
@@ -35,7 +35,8 @@ const SettingPage = () => {
         [...new Array(value)].map((x, idx) => {
           return {
             name: `Team ${idx}`,
-            score: '0',
+            score: 0,
+            id: idx,
           };
         }),
       );
@@ -57,7 +58,7 @@ const SettingPage = () => {
       alert('먼저 조회 조건을 잘 설정해 주세용!');
       return;
     }
-    console.log("Not implemented");
+    console.log('Not implemented');
   };
 
   const changeTeamName = (idx, value) => {
@@ -88,6 +89,7 @@ const SettingPage = () => {
               onChange={(e) => changeTeamName(idx, e.target.value)}
               value={team.name}
               margin="normal"
+              inputProps={{maxLength: 10}}
             />
           ))}
         </div>
