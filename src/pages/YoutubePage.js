@@ -18,7 +18,7 @@ const YoutubePage = () => {
   const isLast = musics.length === musicIdx + 1;
 
   return (
-    <div className="QuestionPage">
+    <div className="YoutubePage">
       <ScoreBoard />
       <Grid item xs={8}>
         <h2 style={{ fontSize: '32px', textAlign: 'center', margin: '20px' }}>
