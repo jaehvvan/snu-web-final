@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import ErrorPage from './pages/ErrorPage';
 import FinishPage from './pages/FinishPage';
 import LandingPage from './pages/LandingPage';
@@ -9,7 +9,7 @@ import YoutubePage from './pages/YoutubePage';
 import { AtomUser } from './store/atom';
 
 function App() {
-  const [user, setUser] = useRecoilState(AtomUser);
+  const user = useRecoilValue(AtomUser);
   if (user === undefined) {
     return <LandingPage />;
   }
