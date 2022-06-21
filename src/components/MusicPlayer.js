@@ -6,6 +6,7 @@ import { AtomMusicIdx, AtomMusics } from '../store/atom';
 
 const MusicPlayer = () => {
   const [playing, setPlaying] = useState(false);
+  const [curTimerId, setCurTimerId] = useState(null);
   const musics = useRecoilValue(AtomMusics);
   const musicIdx = useRecoilValue(AtomMusicIdx);
 
@@ -13,14 +14,21 @@ const MusicPlayer = () => {
 
   const handlePlay = (e) => {
     const { name: length } = e.currentTarget;
+    clearTimeout(curTimerId);
+
     setPlaying(true);
-    setTimeout(() => {
+    const timerId = setTimeout(() => {
       setPlaying(false);
     }, +length);
+
+    setCurTimerId(timerId);
   };
 
-  const togglePlay = () => {
-    setPlaying(!playing);
+  const stopPlay = () => {
+    if (!playing) return;
+
+    clearTimeout(curTimerId);
+    setPlaying(false);
   };
 
   return (
@@ -32,21 +40,26 @@ const MusicPlayer = () => {
           config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
         />
       </div>
-      <div className="MusicPlayer__img" onClick={togglePlay}></div>
+      <div
+        className={`MusicPlayer__img ${
+          playing ? 'MusicPlayer__img--playing' : 'MusicPlayer__img--stop'
+        }`}
+        onClick={stopPlay}
+      />
       <div className="MusicPlayer__controlContainer">
         <div className="MusicPlayer__controls">
           <button className="MusicPlayer__btn" name="500" onClick={handlePlay}>
-            1초 듣기
+            <span>1초 듣기</span>
           </button>
           <button className="MusicPlayer__btn" name="1500" onClick={handlePlay}>
-            2초 듣기
+            <span>2초 듣기</span>
           </button>
           <button className="MusicPlayer__btn" name="999999" onClick={handlePlay}>
-            전체 듣기
+            <span>전체 듣기</span>
           </button>
         </div>
         <Link className="MusicPlayer__anchor" to="/youtube">
-          정답 공개
+          <span>정답 공개</span>
         </Link>
       </div>
     </div>
