@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import HintButton from '../components/HintButton';
 import MusicPlayer from '../components/MusicPlayer';
 import QuestionProgress from '../components/QuestionProgress';

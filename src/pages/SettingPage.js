@@ -36,7 +36,7 @@ const SettingPage = () => {
           return {
             name: `Team ${idx}`,
             score: 0,
-            id: idx
+            id: idx,
           };
         }),
       );
@@ -58,11 +58,11 @@ const SettingPage = () => {
       alert('먼저 조회 조건을 잘 설정해 주세용!');
       return;
     }
-    console.log("Not implemented");
+    console.log('Not implemented');
   };
 
   const changeTeamName = (idx, value) => {
-    setTeams(teams.map((team, index) => (index === idx ? { ...team, name: value} : team)));
+    setTeams(teams.map((team, index) => (index === idx ? { ...team, name: value } : team)));
   };
 
   return (
