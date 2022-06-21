@@ -1,4 +1,3 @@
-import CampaignIcon from '@mui/icons-material/Campaign';
 import LyricsIcon from '@mui/icons-material/Lyrics';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Button } from '@mui/material';
@@ -82,7 +81,7 @@ const SettingPage = () => {
           </Select>
         </FormControl>
       </div>
-      {teamCount && (
+      {teamCount > 0 && (
         <div id="teamNameDom">
           {teams.map((team, idx) => (
             <TextField
@@ -128,18 +127,18 @@ const SettingPage = () => {
             <MenuItem value={3}>3</MenuItem>
             <MenuItem value={4}>4</MenuItem>
             <MenuItem value={5}>5</MenuItem>
+            <MenuItem value={6}>6</MenuItem>
+            <MenuItem value={7}>7</MenuItem>
+            <MenuItem value={8}>8</MenuItem>
+            <MenuItem value={9}>9</MenuItem>
+            <MenuItem value={10}>10</MenuItem>
           </Select>
         </FormControl>
       </div>
       <div id="buttonDom">
         <ThemeProvider theme={theme}>
           <div>
-            <Button variant="outlined" size="large" color="neutral">
-              <CampaignIcon /> 정답 메일 발송
-            </Button>
-          </div>
-          <div>
-            <Button variant="outlined" size="large" color="neutral" onClick={makeTeams}>
+            <Button disabled={teamCount === 0} variant="outlined" size="large" color="neutral" onClick={makeTeams}>
               <LyricsIcon />
               <Link to="/question">게임 시작</Link>
             </Button>
