@@ -16,7 +16,10 @@ import {
   AtomCategory,
   AtomMusics,
   AtomproblemCount,
-  AtomTeams, AtomYear
+  AtomUser,
+  AtomYear,
+  AtomTeams,
+  AtomYear,
 } from '../store/atom';
 
 const SettingPage = () => {
@@ -81,7 +84,7 @@ const SettingPage = () => {
           </Select>
         </FormControl>
       </div>
-      {teamCount > 0 && (
+      {teamCount ? (
         <div id="teamNameDom">
           {teams.map((team, idx) => (
             <TextField
@@ -94,7 +97,7 @@ const SettingPage = () => {
             />
           ))}
         </div>
-      )}
+      ) : null}
       <div id="yearDom">
         <FormControl fullWidth>
           <InputLabel>OO년대</InputLabel>
@@ -138,7 +141,13 @@ const SettingPage = () => {
       <div id="buttonDom">
         <ThemeProvider theme={theme}>
           <div>
-            <Button disabled={teamCount === 0} variant="outlined" size="large" color="neutral" onClick={makeTeams}>
+            <Button
+              disabled={teamCount === 0}
+              variant="outlined"
+              size="large"
+              color="neutral"
+              onClick={makeTeams}
+            >
               <LyricsIcon />
               <Link to="/question">게임 시작</Link>
             </Button>
