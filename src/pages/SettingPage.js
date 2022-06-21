@@ -10,14 +10,14 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {useRecoilState} from 'recoil';
+import { useRecoilState } from 'recoil';
 import {
   AtomCategory,
   AtomMusics,
   AtomproblemCount,
   AtomTeams,
   AtomUser,
-  AtomYear
+  AtomYear,
 } from '../store/atom';
 
 const SettingPage = () => {
@@ -80,7 +80,7 @@ const SettingPage = () => {
           </Select>
         </FormControl>
       </div>
-      {teamCount && (
+      {teamCount ? (
         <div id="teamNameDom">
           {teams.map((team, idx) => (
             <TextField
@@ -89,11 +89,11 @@ const SettingPage = () => {
               onChange={(e) => changeTeamName(idx, e.target.value)}
               value={team.name}
               margin="normal"
-              inputProps={{maxLength: 10}}
+              inputProps={{ maxLength: 10 }}
             />
           ))}
         </div>
-      )}
+      ) : null}
       <div id="yearDom">
         <FormControl fullWidth>
           <InputLabel>OO년대</InputLabel>
