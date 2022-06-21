@@ -17,6 +17,7 @@ import './styles/setting.css';
 import './styles/description.scss';
 import './styles/answerPage.scss';
 import './styles/finish.css';
+import './styles/card.css';
 import { theme } from './styles/config';
 
 import { BrowserRouter } from 'react-router-dom';
