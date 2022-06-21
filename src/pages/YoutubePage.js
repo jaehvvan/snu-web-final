@@ -24,7 +24,7 @@ const YoutubePage = () => {
         <h2 style={{ fontSize: '32px', textAlign: 'center', margin: '20px' }}>
           "{music.title}" by {music.artist} ({music.year})
         </h2>
-        <YoutubeModal videoURL={music.youtube_music_url} />
+        <YoutubeModal videoURL={music.youtube_video_url} />
         <button className="logout_btn">
           <Link
             to={isLast ? '/finish' : '/question'}

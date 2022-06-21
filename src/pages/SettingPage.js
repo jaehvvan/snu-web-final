@@ -12,11 +12,19 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import musicData from '../components/Music.json';
-import { AtomCategory, AtomMusics, AtomproblemCount, AtomYear, AtomTeams } from '../store/atom';
+import {
+  AtomCategory,
+  AtomMusicIdx,
+  AtomMusics,
+  AtomproblemCount,
+  AtomTeams,
+  AtomYear,
+} from '../store/atom';
 
 const SettingPage = () => {
   const [teamCount, setTeamCount] = useState(0);
   const [teams, setTeams] = useRecoilState(AtomTeams);
+  const [musicIdx, setMusicIdx] = useRecoilState(AtomMusicIdx);
   const [year, setYear] = useRecoilState(AtomYear);
   const [category, setCategory] = useRecoilState(AtomCategory);
   const [problemCount, setProblemCount] = useRecoilState(AtomproblemCount);
@@ -50,10 +58,11 @@ const SettingPage = () => {
         .map((data, index) => ({ ...data, id: index }))
         .filter((x) => year === 0 || (x.year >= year && x.year <= year + 10))
         .filter((x) => category === '' || x.category === category),
-      { size: problemCount },
+      { size: problemCount, replace: false },
     );
 
     setMusics(data);
+    setMusicIdx(0);
     const indexes = data.map((d) => d.id).join(',');
     const checkSum = (data.reduce((acc, val) => acc + val.id, 0) % 96) + 1;
     navigator.clipboard.writeText(
