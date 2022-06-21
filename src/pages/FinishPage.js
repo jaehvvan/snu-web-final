@@ -1,7 +1,7 @@
 import { Fireworks } from 'fireworks/lib/react';
 import { Link } from 'react-router-dom';
-import { useRecoilState, useResetRecoilState } from 'recoil';
-import MaterialTable from '../components/RankTable';
+import { useResetRecoilState } from 'recoil';
+import RankTable from '../components/RankTable';
 import { AtomMusicIdx, AtomMusics, AtomTeams } from '../store/atom';
 
 const FinishPage = () => {
@@ -29,9 +29,6 @@ const FinishPage = () => {
     resetTeams();
   };
 
-  const [teams, setTeams] = useRecoilState(AtomTeams);
-  [...teams].sort((x, y) => y.score - x.score);
-
   return (
     <div id="finishing">
       <div>
@@ -41,7 +38,7 @@ const FinishPage = () => {
           처음으로
         </Link>
       </div>
-      <MaterialTable />
+      <RankTable />
     </div>
   );
 };

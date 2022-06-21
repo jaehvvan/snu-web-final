@@ -13,6 +13,10 @@ const MusicPlayer = () => {
     }, +length);
   };
 
+  const togglePlay = () => {
+    setPlaying(!playing);
+  };
+
   return (
     <div className="MusicPlayer">
       <div className="MusicPlayer__youtube">
@@ -22,7 +26,7 @@ const MusicPlayer = () => {
           config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
         />
       </div>
-      <div className="MusicPlayer__img"></div>
+      <div className="MusicPlayer__img" onClick={togglePlay}></div>
       <div className="MusicPlayer__controlContainer">
         <div className="MusicPlayer__controls">
           <button className="MusicPlayer__btn" name="1000" onClick={handlePlay}>
