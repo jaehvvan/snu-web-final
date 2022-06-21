@@ -1,12 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import ErrorPage from './pages/ErrorPage';
 import FinishPage from './pages/FinishPage';
 import LandingPage from './pages/LandingPage';
 import QuestionPage from './pages/QuestionPage';
 import SettingPage from './pages/SettingPage';
 import YoutubePage from './pages/YoutubePage';
+import { AtomUser } from './store/atom';
 
 function App() {
+  const [user, setUser] = useRecoilState(AtomUser);
+  if (user === undefined) {
+    return <LandingPage />;
+  }
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
