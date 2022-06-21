@@ -6,6 +6,7 @@ const ScoreBoard = () => {
   const [teams, setTeams] = useRecoilState(AtomTeams);
 
   const handleClick = (teamId) => {
+    console.log(teams);
     setTeams(teams.map((team) => (team.id === teamId ? { ...team, score: team.score + 1 } : team)));
   };
 
