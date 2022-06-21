@@ -10,7 +10,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import {useRecoilState} from 'recoil';
 import {
   AtomCategory,
   AtomMusics,
@@ -21,7 +21,7 @@ import {
 } from '../store/atom';
 
 const SettingPage = () => {
-  const [teamCount, setTeamCount] = useState('');
+  const [teamCount, setTeamCount] = useState(0);
   const [teams, setTeams] = useRecoilState(AtomTeams);
   const [user, setUser] = useRecoilState(AtomUser);
   const [year, setYear] = useRecoilState(AtomYear);
