@@ -8,22 +8,21 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
+import sample from '@stdlib/random-sample';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {useRecoilState} from 'recoil';
+import { useRecoilState } from 'recoil';
+import musicData from '../components/Music.json';
 import {
   AtomCategory,
   AtomMusics,
   AtomproblemCount,
-  AtomTeams,
-  AtomUser,
-  AtomYear
+  AtomTeams, AtomYear
 } from '../store/atom';
 
 const SettingPage = () => {
   const [teamCount, setTeamCount] = useState(0);
   const [teams, setTeams] = useRecoilState(AtomTeams);
-  const [user, setUser] = useRecoilState(AtomUser);
   const [year, setYear] = useRecoilState(AtomYear);
   const [category, setCategory] = useRecoilState(AtomCategory);
   const [problemCount, setProblemCount] = useRecoilState(AtomproblemCount);
@@ -53,12 +52,15 @@ const SettingPage = () => {
     },
   });
 
-  const sendEmail = async (e) => {
-    if (musics.length === 0) {
-      alert('먼저 조회 조건을 잘 설정해 주세용!');
-      return;
-    }
-    console.log('Not implemented');
+  const makeTeams = () => {
+    setMusics(
+      sample(
+        musicData
+          .filter((x) => year === 0 || (x.year >= year && x.year <= year + 10))
+          .filter((x) => category === '' || x.category === category),
+        { size: problemCount },
+      ),
+    );
   };
 
   const changeTeamName = (idx, value) => {
@@ -89,7 +91,7 @@ const SettingPage = () => {
               onChange={(e) => changeTeamName(idx, e.target.value)}
               value={team.name}
               margin="normal"
-              inputProps={{maxLength: 10}}
+              inputProps={{ maxLength: 10 }}
             />
           ))}
         </div>
@@ -98,9 +100,9 @@ const SettingPage = () => {
         <FormControl fullWidth>
           <InputLabel>OO년대</InputLabel>
           <Select value={year} label="OO년대" onChange={(e) => setYear(e.target.value)}>
-            <MenuItem value="1990년대">1990년대</MenuItem>
-            <MenuItem value="2000년대">2000년대</MenuItem>
-            <MenuItem value="2010년대">2010년대</MenuItem>
+            <MenuItem value={1990}>1990년대</MenuItem>
+            <MenuItem value={2000}>2000년대</MenuItem>
+            <MenuItem value={2010}>2010년대</MenuItem>
           </Select>
         </FormControl>
       </div>
@@ -108,8 +110,8 @@ const SettingPage = () => {
         <FormControl fullWidth>
           <InputLabel>카테고리</InputLabel>
           <Select value={category} label="카테고리" onChange={(e) => setCategory(e.target.value)}>
-            <MenuItem value={'국내'}>국내</MenuItem>
-            <MenuItem value={'해외'}>해외</MenuItem>
+            <MenuItem value={'KPOP'}>국내</MenuItem>
+            <MenuItem value={'POP'}>해외</MenuItem>
           </Select>
         </FormControl>
       </div>
@@ -132,12 +134,12 @@ const SettingPage = () => {
       <div id="buttonDom">
         <ThemeProvider theme={theme}>
           <div>
-            <Button variant="outlined" size="large" onClick={sendEmail} color="neutral">
+            <Button variant="outlined" size="large" color="neutral">
               <CampaignIcon /> 정답 메일 발송
             </Button>
           </div>
           <div>
-            <Button variant="outlined" size="large" color="neutral">
+            <Button variant="outlined" size="large" color="neutral" onClick={makeTeams}>
               <LyricsIcon />
               <Link to="/question">게임 시작</Link>
             </Button>
