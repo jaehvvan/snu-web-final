@@ -1,6 +1,4 @@
 import { createTheme } from '@mui/material';
-import KoreaNewsM from '../assets/fonts/a대한늬우스M.ttf';
-import KoreaNewsL from '../assets/fonts/a대한늬우스L.ttf';
 
 export const theme = createTheme({
   typography: {

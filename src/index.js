@@ -16,6 +16,7 @@ import './styles/hintButton.scss';
 import './styles/hintModal.scss';
 import './styles/scoreBoard.scss';
 import './styles/setting.css';
+import './styles/description.scss';
 import { theme } from './styles/config';
 
 import { BrowserRouter } from 'react-router-dom';
