@@ -12,15 +12,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import musicData from '../components/Music.json';
-import {
-  AtomCategory,
-  AtomMusics,
-  AtomproblemCount,
-  AtomUser,
-  AtomYear,
-  AtomTeams,
-  AtomYear,
-} from '../store/atom';
+import { AtomCategory, AtomMusics, AtomproblemCount, AtomYear, AtomTeams } from '../store/atom';
 
 const SettingPage = () => {
   const [teamCount, setTeamCount] = useState(0);
