@@ -17,6 +17,8 @@ const YoutubePage = () => {
   const music = musics[musicIdx];
   const isLast = musics.length === musicIdx + 1;
 
+  console.log(music);
+
   return (
     <div>
       <ScoreBoard />

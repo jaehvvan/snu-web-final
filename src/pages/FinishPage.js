@@ -55,7 +55,6 @@ const FinishPage = () => {
       <RankTable />
       <div id="finish">
         <Fireworks {...fxProps} />
-        <h1>게임이 종료되었습니다</h1>
         <div>
           <Link to="/" onClick={clearState}>
             <button className="restart_btn" id="start_button">
@@ -70,6 +69,8 @@ const FinishPage = () => {
           </Link>
         </div>
       </div>
+
+      <h1>게임이 종료되었습니다</h1>
     </div>
   );
 };
