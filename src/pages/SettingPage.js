@@ -89,7 +89,7 @@ const SettingPage = () => {
               onChange={(e) => changeTeamName(idx, e.target.value)}
               value={team.name}
               margin="normal"
-              maxLength={10}
+              inputProps={{maxLength: 10}}
             />
           ))}
         </div>
