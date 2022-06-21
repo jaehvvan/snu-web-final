@@ -33,11 +33,11 @@ const HintModal = ({ closeHintModal }) => {
     const getHint = () => {
       switch (selectedHintId) {
         case '0':
-          return music.artist;
+          return `아티스트는 ${music.artist.trim()} 입니다.`;
         case '1':
-          return `첫 글자는 ${music.title[0]}, ${music.title.length}자`;
+          return `첫 글자는 ${music.title.trim()[0]}, ${music.title.length}자입니다.`;
         case '2':
-          return music.year;
+          return `이 곡은 ${music.year}년 곡입니다.`;
         default:
           return '';
       }
@@ -45,7 +45,7 @@ const HintModal = ({ closeHintModal }) => {
     return (
       <>
         <div className="HintModal__type">{hintTypes[selectedHintId].content}</div>
-        <div className="HintModal__desc">힌트는 {getHint()} 입니다.</div>
+        <div className="HintModal__desc">{getHint()}</div>
         <button className="HintModal__backBtn" onClick={hideHint}>
           뒤로 가기
         </button>
