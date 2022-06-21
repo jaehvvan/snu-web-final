@@ -1,13 +1,13 @@
 import { useRecoilValue } from 'recoil';
-import { AtomMusicIdx } from '../store/atom';
+import { AtomMusicIdx, AtomproblemCount } from '../store/atom';
 
 const QuestionProgress = () => {
   const musicIdx = useRecoilValue(AtomMusicIdx);
-  const totalQuestionCnt = 5;
+  const problemCnt = useRecoilValue(AtomproblemCount);
 
   return (
     <div className="QuestionProgress">
-      {musicIdx} / {totalQuestionCnt}
+      {musicIdx + 1} / {problemCnt}
     </div>
   );
 };
