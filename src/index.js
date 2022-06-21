@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import { RecoilRoot } from 'recoil';
+import App from './App';
 
-import './styles/reset.scss';
-import './styles/normalize.scss';
-import './styles/setting.css';
+import './styles/finish.css';
 import './styles/fonts.css';
 import './styles/index.scss';
-import './styles/scoreBoard.scss';
+import './styles/musicPlayer.scss';
+import './styles/normalize.scss';
 import './styles/questionPage.scss';
 import './styles/questionProgress.scss';
 import './styles/musicPlayer.scss';
+import './styles/hintButton.scss';
+import './styles/hintModal.scss';
+import './styles/reset.scss';
+import './styles/scoreBoard.scss';
+import './styles/setting.css';
 
 import { BrowserRouter } from 'react-router-dom';
 
