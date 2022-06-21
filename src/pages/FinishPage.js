@@ -2,7 +2,7 @@ import { Fireworks } from 'fireworks/lib/react';
 import { Link } from 'react-router-dom';
 import { useResetRecoilState } from 'recoil';
 import RankTable from '../components/RankTable';
-import { AtomMusicIdx, AtomMusics, AtomTeams } from '../store/atom';
+import {AtomCategory, AtomMusicIdx, AtomMusics, AtomproblemCount, AtomTeams, AtomYear} from '../store/atom';
 
 const FinishPage = () => {
   let fxProps = {
@@ -22,11 +22,17 @@ const FinishPage = () => {
   const resetMusics = useResetRecoilState(AtomMusics);
   const resetMusicIdx = useResetRecoilState(AtomMusicIdx);
   const resetTeams = useResetRecoilState(AtomTeams);
+  const resetYear = useResetRecoilState(AtomYear);
+  const resetCategory = useResetRecoilState(AtomCategory);
+  const resetProblemCount = useResetRecoilState(AtomproblemCount);
 
   const clearState = () => {
     resetMusicIdx();
     resetMusics();
     resetTeams();
+    resetYear();
+    resetCategory();
+    resetProblemCount();
   };
 
   return (
