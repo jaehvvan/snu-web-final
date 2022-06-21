@@ -1,7 +1,7 @@
 #landing {
   /*position:relative;*/
   height: 100vh;
-  background-image: url('../assets/images/landingpage_v02.jpg');
+  background-image: url('../assets/images/landingpage_v03.JPG');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -29,23 +29,6 @@
   font-size: 25px;
 }
 
-/*#start_button{*/
-/*    !*background: yellow;*!*/
-/*    border-color: yellow;*/
-/*    color: #fff;*/
-/*    background: {*/
-/*        image: linear-gradient(45deg ,yellow 50%, transparent 50%);*/
-/*        position: 100%;*/
-/*        size: 400%;*/
-/*    }*/
-/*    transition: background 300ms ease-in-out;*/
-
-/*    &:hover {*/
-/*         background-position: 0;*/
-/* }*/
-
-/*}*/
-
 .button_container {
   position: absolute;
   left: 0;
@@ -55,7 +38,6 @@
 
 .description,
 .link {
-  font-family: 'Amatic SC', cursive;
   text-align: center;
 }
 
