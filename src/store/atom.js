@@ -38,7 +38,7 @@ export const AtomUser = atom({
 
 export const AtomYear = atom({
   key: 'AtomYear',
-  default: '',
+  default: 0,
   effects_UNSTABLE: [persistAtom],
 });
 
