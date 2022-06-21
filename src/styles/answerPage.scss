@@ -1,0 +1,37 @@
+.AnswerPage {
+  display: flex;
+  border: 1px solid black;
+  margin: 100px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__row {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid black;
+    padding: 8px 16px;
+  }
+
+  &__content {
+    display: flex;
+    width: 100%;
+  }
+
+  &__col {
+    width: 20%;
+  }
+
+  &__item {
+    display: flex;
+    width: 100%;
+    padding: 8px 16px;
+
+    &--color {
+      background-color: rgb(253, 255, 212);
+    }
+  }
+}
