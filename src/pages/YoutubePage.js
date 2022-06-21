@@ -17,19 +17,22 @@ const YoutubePage = () => {
   const music = musics[musicIdx];
   const isLast = musics.length === musicIdx + 1;
 
-  console.log(music);
-
   return (
-    <div>
+    <div className="QuestionPage">
       <ScoreBoard />
       <Grid item xs={8}>
-        <YoutubeModal videoID={music.id} timestamp={music.timestamp} />
-        <Link
-          to={isLast ? '/finish' : '/question'}
-          onClick={() => setMusicIdx(isLast ? musicIdx : musicIdx + 1)}
-        >
-          Next
-        </Link>
+        <h2 style={{ fontSize: '32px', textAlign: 'center', margin: '20px' }}>
+          "{music.title}" by {music.artist} ({music.year})
+        </h2>
+        <YoutubeModal videoURL={music.youtube_video_url} />
+        <button className="logout_btn">
+          <Link
+            to={isLast ? '/finish' : '/question'}
+            onClick={() => setMusicIdx(isLast ? musicIdx : musicIdx + 1)}
+          >
+            <span>다음 문제</span>
+          </Link>
+        </button>
       </Grid>
     </div>
   );

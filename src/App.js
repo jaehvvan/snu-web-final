@@ -11,6 +11,7 @@ import { AtomUser } from './store/atom';
 
 function App() {
   const user = useRecoilValue(AtomUser);
+
   if (user === undefined) {
     return <LandingPage />;
   }
