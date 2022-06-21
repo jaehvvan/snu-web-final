@@ -50,6 +50,6 @@ export const AtomCategory = atom({
 
 export const AtomproblemCount = atom({
   key: 'AtomProblemCount',
-  default: '',
+  default: 5,
   effects_UNSTABLE: [persistAtom],
 });

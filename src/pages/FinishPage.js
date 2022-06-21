@@ -1,7 +1,8 @@
 import { Fireworks } from 'fireworks/lib/react';
-import { useRecoilState } from 'recoil';
+import { Link } from 'react-router-dom';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import MaterialTable from '../components/RankTable';
-import { AtomTeams } from '../store/atom';
+import { AtomMusicIdx, AtomMusics, AtomTeams } from '../store/atom';
 
 const FinishPage = () => {
   let fxProps = {
@@ -18,6 +19,16 @@ const FinishPage = () => {
     }),
   };
 
+  const resetMusics = useResetRecoilState(AtomMusics);
+  const resetMusicIdx = useResetRecoilState(AtomMusicIdx);
+  const resetTeams = useResetRecoilState(AtomTeams);
+
+  const clearState = () => {
+    resetMusicIdx();
+    resetMusics();
+    resetTeams();
+  };
+
   const [teams, setTeams] = useRecoilState(AtomTeams);
   [...teams].sort((x, y) => y.score - x.score);
 
@@ -26,8 +37,10 @@ const FinishPage = () => {
       <div>
         <Fireworks {...fxProps} />
         <h1>게임이 종료되었습니다</h1>
+        <Link to="/" onClick={clearState}>
+          처음으로
+        </Link>
       </div>
-      {/*<div id="rank"> rankinggggggg #1 #2 #3 #4</div>*/}
       <MaterialTable />
     </div>
   );

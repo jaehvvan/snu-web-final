@@ -1,13 +1,13 @@
 import { Grid } from '@mui/material';
 import { Link, Navigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import ScoreBoard from '../components/ScoreBoard';
 import YoutubeModal from '../components/YoutubePlayer';
 import { AtomMusicIdx, AtomMusics } from '../store/atom';
 import '../styles/card.css';
 
 const YoutubePage = () => {
-  const [musics, setMusics] = useRecoilState(AtomMusics);
+  const musics = useRecoilValue(AtomMusics);
   const [musicIdx, setMusicIdx] = useRecoilState(AtomMusicIdx);
 
   if (musicIdx >= musics.length) {
@@ -15,7 +15,7 @@ const YoutubePage = () => {
   }
 
   const music = musics[musicIdx];
-  const isLast = musics.length === musicIdx - 1;
+  const isLast = musics.length === musicIdx + 1;
 
   return (
     <div>

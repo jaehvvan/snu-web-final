@@ -3,7 +3,3 @@
   src: url('../assets/fonts/a대한늬우스M.ttf') format('truetype'),
     url('../assets/fonts/a대한늬우스L.ttf') format('truetype');
 }
-
-body {
-  font-family: '신서유기폰트';
-}
