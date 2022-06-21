@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-import {useEffect, useState} from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import {
@@ -36,6 +36,7 @@ const SettingPage = () => {
           return {
             name: `Team ${idx}`,
             score: 0,
+            id: idx
           };
         }),
       );
@@ -61,7 +62,7 @@ const SettingPage = () => {
   };
 
   const changeTeamName = (idx, value) => {
-    setTeams(teams.map((team, index) => (index === idx ? { ...team, name: value } : team)));
+    setTeams(teams.map((team, index) => (index === idx ? { ...team, name: value} : team)));
   };
 
   return (
