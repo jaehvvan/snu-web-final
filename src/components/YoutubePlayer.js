@@ -1,7 +1,14 @@
-import YouTube from 'react-youtube';
+import ReactPlayer from 'react-player';
 
-const VideoModal = ({videoID, timestamp}) => {
-  return <YouTube videoId={videoID} onReady={(e) => e.target.seekTo(timestamp)} />;
+const VideoModal = ({ videoURL }) => {
+  return (
+    <div className="visibleYoutube">
+      <ReactPlayer
+        url={videoURL}
+        config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
+      />
+    </div>
+  );
 };
 
 export default VideoModal;

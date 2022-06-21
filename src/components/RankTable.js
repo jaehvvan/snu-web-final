@@ -19,11 +19,13 @@ const RankTable = () => {
       <Table aria-label="customized table" sx={{ fontSize: 40 }}>
         <TableHead>
           <TableRow>
-            <TableCell sx={{ fontSize: 24 }}>순위</TableCell>
-            <TableCell sx={{ fontSize: 24 }} align="right">
+            <TableCell sx={{ fontSize: 24 }} align="center">
+              순위
+            </TableCell>
+            <TableCell sx={{ fontSize: 24 }} align="center">
               팀 이름
             </TableCell>
-            <TableCell sx={{ fontSize: 24 }} align="right">
+            <TableCell sx={{ fontSize: 24 }} align="center">
               스코어
             </TableCell>
           </TableRow>
@@ -31,13 +33,13 @@ const RankTable = () => {
         <TableBody>
           {rows.map((row, idx) => (
             <TableRow key={row.name}>
-              <TableCell sx={{ fontSize: 20 }} component="th" scope="row">
+              <TableCell sx={{ fontSize: 20 }} component="th" align="center" scope="row">
                 {idx + 1}
               </TableCell>
-              <TableCell sx={{ fontSize: 20 }} align="right">
+              <TableCell sx={{ fontSize: 20 }} align="center">
                 {row.name}
               </TableCell>
-              <TableCell sx={{ fontSize: 20 }} align="right">
+              <TableCell sx={{ fontSize: 20 }} align="center">
                 {row.score}
               </TableCell>
             </TableRow>
