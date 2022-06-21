@@ -15,6 +15,7 @@ import './styles/hintModal.scss';
 import './styles/scoreBoard.scss';
 import './styles/setting.css';
 import './styles/description.scss';
+import './styles/answerPage.scss';
 import './styles/finish.css';
 import { theme } from './styles/config';
 
