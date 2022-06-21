@@ -26,7 +26,7 @@ export const AtomTeams = atom({
 
 export const AtomMusicIdx = atom({
   key: 'AtomMusicIdx',
-  default: 1,
+  default: 0,
   effects_UNSTABLE: [persistAtom],
 });
 
@@ -50,6 +50,6 @@ export const AtomCategory = atom({
 
 export const AtomproblemCount = atom({
   key: 'AtomProblemCount',
-  default: 5,
+  default: 1,
   effects_UNSTABLE: [persistAtom],
 });
