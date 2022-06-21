@@ -26,7 +26,7 @@ export const AtomTeams = atom({
 
 export const AtomMusicIdx = atom({
   key: 'AtomMusicIdx',
-  default: 0,
+  default: 1,
   effects_UNSTABLE: [persistAtom],
 });
 
