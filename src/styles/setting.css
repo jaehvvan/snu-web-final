@@ -1,13 +1,15 @@
 #layoutDom{
-    margin: 10px;
-    border: 10px solid #f9b256;
+    width: 100%;
+    min-height: 100vh;
+    border: 10px solid black;
     border-radius: 5px;
     padding: 5px;
+    background-color: #f9b256;
 }
 
 #titleDom{
     font-size: 50px;
-    color: #fa9f4e;
+    color: black;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;

@@ -38,7 +38,7 @@ const SettingPage = () => {
   const theme = createTheme({
     palette: {
       neutral: {
-        main: '#fa9f4e',
+        main: '#000000',
         contrastText: 'black',
       },
     },
