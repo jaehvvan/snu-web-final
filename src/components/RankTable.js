@@ -5,7 +5,7 @@ import {
   TableCell,
   TableContainer,
   TableHead,
-  TableRow
+  TableRow,
 } from '@mui/material';
 import { useRecoilValue } from 'recoil';
 import { AtomTeams } from '../store/atom';
@@ -15,7 +15,7 @@ const RankTable = () => {
   const rows = [...teams].sort((x, y) => y.score - x.score);
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{ width: '60%' }}>
       <Table aria-label="customized table">
         <TableHead>
           <TableRow>
