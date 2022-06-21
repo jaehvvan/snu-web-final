@@ -35,9 +35,6 @@ const FinishPage = () => {
     resetProblemCount();
   };
 
-  const [teams, setTeams] = useRecoilState(AtomTeams);
-  [...teams].sort((x, y) => y.score - x.score);
-
   return (
     <div id="finishing">
       <div>
@@ -47,7 +44,7 @@ const FinishPage = () => {
           처음으로
         </Link>
       </div>
-      <MaterialTable />
+      <RankTable />
     </div>
   );
 };

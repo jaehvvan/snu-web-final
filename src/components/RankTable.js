@@ -1,17 +1,17 @@
 import {
-    Paper,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow
 } from '@mui/material';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { AtomTeams } from '../store/atom';
 
-const CustomizedTables = () => {
-  const [teams, setTeams] = useRecoilState(AtomTeams);
+const RankTable = () => {
+  const teams = useRecoilValue(AtomTeams);
   const rows = [...teams].sort((x, y) => y.score - x.score);
 
   return (
@@ -40,4 +40,4 @@ const CustomizedTables = () => {
   );
 };
 
-export default CustomizedTables;
+export default RankTable;
