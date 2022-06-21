@@ -38,7 +38,7 @@ const LandingPage = () => {
           <br /> 술자리에서든, MT에서든 <br /> 가벼운 즐거움이 필요한 곳 어디서든 플레이하세요
         </div>
         <div>
-          <button class="btn" id="start_button" onClick={handleLogin}>
+          <button className="btn" id="start_button" onClick={handleLogin}>
             <span>게임 시작하기</span>
           </button>
           <div id="team_name">made by 6조</div>
