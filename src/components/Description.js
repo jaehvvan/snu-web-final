@@ -18,6 +18,9 @@ const Description = ({ closeDescription }) => {
             2. 사회자는 팀 수, 팀명을 입력해 주시고 어떤 노래를 맞출지 카테고리(연도, 장르)를 설정하고 문제 수를 정해주세요.
           </li>
           <li className="Description__item">
+            (*카테고리를 섞고 싶으면 설정하지 않은 채로 두면 됩니다.)
+          </li>
+          <li className="Description__item">
             3. 모든 게임 설정을 마쳤다면 이제 게임 시작을 할 수 있습니다!
           </li>
           <li className="Description__item">
