@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
@@ -16,7 +16,7 @@ const MusicPlayer = () => {
     setPlaying(true);
 
     setTimeout(() => {
-      setPlaying(false);
+      document.getElementsByClassName('MusicPlayer__img')[0].click();
     }, +length);
   };
 
@@ -40,7 +40,7 @@ const MusicPlayer = () => {
           <button className="MusicPlayer__btn" name="600" onClick={handlePlay}>
             <span>1초 듣기</span>
           </button>
-          <button className="MusicPlayer__btn" name="1500" onClick={handlePlay}>
+          <button className="MusicPlayer__btn" name="1600" onClick={handlePlay}>
             <span>2초 듣기</span>
           </button>
           <button className="MusicPlayer__btn" name="999999" onClick={handlePlay}>
