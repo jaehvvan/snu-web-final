@@ -154,13 +154,13 @@ const SettingPage = () => {
               disabled={teamCount === 0}
               variant="outlined"
               size="large"
-              sx={{ padding: '8px 16px', fontSize: '20px', color: 'black' }}
+              sx={{ padding: 0, fontSize: '20px', color: 'black' }}
               color="inherit"
               onClick={makeTeams}
             >
-              <LyricsIcon sx={{ marginRight: '8px' }} />
               <Link to="/question" className="startLink">
-                게임 시작
+                <LyricsIcon sx={{ marginRight: '8px' }} />
+                <span className="">게임 시작</span>
               </Link>
             </Button>
           </div>
