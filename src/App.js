@@ -16,7 +16,7 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    if (!user) {
+    if (!user && location.pathname !== '/answer') {
       navigate('/');
     }
   }, [user, location.pathname]);
