@@ -35,7 +35,12 @@ const HintModal = ({ closeHintModal }) => {
         case '0':
           return `아티스트는 ${music.artist.trim()} 입니다.`;
         case '1':
-          return `첫 글자는 ${music.title.trim()[0]}, ${music.title.length}자입니다.`;
+          const modifiedTitle = music.title.trim();
+          const residue = music.title
+            .trim()
+            .slice(1)
+            .replaceAll(/[^\s\s+]/gi, 'O');
+          return `${modifiedTitle[0]}${residue} 입니다.`;
         case '2':
           return `이 곡은 ${music.year}년 곡입니다.`;
         default:
