@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
@@ -7,10 +7,17 @@ import { AtomMusicIdx, AtomMusics } from '../store/atom';
 const MusicPlayer = () => {
   const [playing, setPlaying] = useState(false);
   const [curTimerId, setCurTimerId] = useState(null);
+  const [isError, setIsError] = useState(false);
   const musics = useRecoilValue(AtomMusics);
   const musicIdx = useRecoilValue(AtomMusicIdx);
 
   const music = musics[musicIdx];
+
+  useEffect(() => {
+    return () => {
+      clearTimeout(curTimerId);
+    };
+  }, []);
 
   const handlePlay = (e) => {
     const { name: length } = e.currentTarget;
@@ -24,31 +31,29 @@ const MusicPlayer = () => {
     setCurTimerId(timerId);
   };
 
-  const stopPlay = () => {
-    if (!playing) return;
-
+  const stopPlaying = () => {
     clearTimeout(curTimerId);
     setPlaying(false);
+    setIsError(true);
+    setTimeout(() => {
+      setIsError(false);
+    }, 500);
   };
 
   return (
     <div className="MusicPlayer">
       <div className="MusicPlayer__youtube">
-        <ReactPlayer
-          playing={playing}
-          url={music.youtube_music_url}
-          config={{ youtube: { playerVars: { origin: 'https://www.youtube.com' } } }}
-        />
+        {isError ? null : <ReactPlayer playing={playing} url={music.youtube_music_url} />}
       </div>
       <div
         className={`MusicPlayer__img ${
           playing ? 'MusicPlayer__img--playing' : 'MusicPlayer__img--stop'
         }`}
-        onClick={stopPlay}
+        onClick={stopPlaying}
       />
       <div className="MusicPlayer__controlContainer">
         <div className="MusicPlayer__controls">
-          <button className="MusicPlayer__btn" name="500" onClick={handlePlay}>
+          <button className="MusicPlayer__btn" name="600" onClick={handlePlay}>
             <span>1초 듣기</span>
           </button>
           <button className="MusicPlayer__btn" name="1500" onClick={handlePlay}>

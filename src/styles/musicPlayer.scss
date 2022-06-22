@@ -24,6 +24,16 @@
 
     &--playing {
       background-image: url('../assets/images/play-img.jpeg');
+      cursor: pointer;
+
+      &:hover::after {
+        width: 100%;
+        height: 100%;
+        content: '';
+        opacity: 0.1;
+        border-radius: 16px;
+        background-color: gray;
+      }
     }
 
     &--stop {
