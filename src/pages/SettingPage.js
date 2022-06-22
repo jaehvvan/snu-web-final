@@ -44,6 +44,9 @@ const SettingPage = () => {
   };
 
   const theme = createTheme({
+    typography: {
+      fontFamily: '신서유기폰트',
+    },
     palette: {
       neutral: {
         main: '#000000',
@@ -146,19 +149,26 @@ const SettingPage = () => {
       </div>
       <div id="buttonDom">
         <ThemeProvider theme={theme}>
-          <div>
+          <div className="startBtn">
             <Button
               disabled={teamCount === 0}
               variant="outlined"
               size="large"
-              color="neutral"
+              sx={{ padding: '8px 16px', fontSize: '20px', color: 'black' }}
+              color="inherit"
               onClick={makeTeams}
             >
-              <LyricsIcon />
-              <Link to="/question">게임 시작</Link>
+              <LyricsIcon sx={{ marginRight: '8px' }} />
+              <Link to="/question" className="startLink">
+                게임 시작
+              </Link>
             </Button>
           </div>
         </ThemeProvider>
+      </div>
+      <div className="SettingPage__imgContainer">
+        <div className="SettingPage__img SettingPage__img--left" />
+        <div className="SettingPage__img SettingPage__img--right" />
       </div>
     </div>
   );
