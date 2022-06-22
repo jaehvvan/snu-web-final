@@ -22,8 +22,9 @@ const MusicPlayer = () => {
   const handlePlay = (e) => {
     const { name: length } = e.currentTarget;
     clearTimeout(curTimerId);
-
+    setIsError(false);
     setPlaying(true);
+
     const timerId = setTimeout(() => {
       setPlaying(false);
     }, +length);
