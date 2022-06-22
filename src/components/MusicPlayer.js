@@ -6,45 +6,28 @@ import { AtomMusicIdx, AtomMusics } from '../store/atom';
 
 const MusicPlayer = () => {
   const [playing, setPlaying] = useState(false);
-  const [curTimerId, setCurTimerId] = useState(null);
-  const [isError, setIsError] = useState(false);
   const musics = useRecoilValue(AtomMusics);
   const musicIdx = useRecoilValue(AtomMusicIdx);
 
   const music = musics[musicIdx];
 
-  useEffect(() => {
-    return () => {
-      clearTimeout(curTimerId);
-    };
-  }, []);
-
   const handlePlay = (e) => {
     const { name: length } = e.currentTarget;
-    clearTimeout(curTimerId);
-    setIsError(false);
     setPlaying(true);
 
-    const timerId = setTimeout(() => {
+    setTimeout(() => {
       setPlaying(false);
     }, +length);
-
-    setCurTimerId(timerId);
   };
 
   const stopPlaying = () => {
-    clearTimeout(curTimerId);
-    setPlaying(false);
-    setIsError(true);
-    setTimeout(() => {
-      setIsError(false);
-    }, 500);
+    setPlaying(!playing);
   };
 
   return (
     <div className="MusicPlayer">
       <div className="MusicPlayer__youtube">
-        {isError ? null : <ReactPlayer playing={playing} url={music.youtube_music_url} />}
+        <ReactPlayer playing={playing} url={music.youtube_music_url} />
       </div>
       <div
         className={`MusicPlayer__img ${
