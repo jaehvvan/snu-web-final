@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage';
 import QuestionPage from './pages/QuestionPage';
 import SettingPage from './pages/SettingPage';
 import YoutubePage from './pages/YoutubePage';
+import AnswerPage from './pages/AnswerPage';
 import { AtomUser } from './store/atom';
 import { useEffect } from 'react';
 
@@ -27,6 +28,7 @@ function App() {
       <Route path="/question" element={<QuestionPage />} />
       <Route path="/youtube" element={<YoutubePage />} />
       <Route path="/finish" element={<FinishPage />} />
+      <Route path="/answer" element={<AnswerPage />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
